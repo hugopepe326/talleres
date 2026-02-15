@@ -654,8 +654,8 @@ const dataP4 = {
         ]
     },
     2026: {
-        hito: "Regreso a la gloria continental. Guido Herrera se convierte en el jugador con más partidos en la historia profesional.",
-        torneo: "CONMEBOL Libertadores / Liga Profesional 2026",
+        hito: "Temporada de transición en el ámbito local. Guido Herrera se convierte en el jugador con más partidos en la historia profesional del club.",
+        torneo: "Liga Profesional 2026",
         plantel: [
             { num: "22", name: "Guido Herrera", pos: "Arquero", info: "33 años. 391 partidos y 1 gol. Leyenda viviente." },
             { num: "35", name: "Santino Barbi", pos: "Arquero", info: "20 años. Arquero de selección juvenil." },
