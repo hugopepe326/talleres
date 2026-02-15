@@ -832,13 +832,9 @@
                 </span>
                 ${jerseyNum ? `<span class="text-xl font-black text-blue-500/50 group-hover:text-blue-500 transition-colors">#${p.num}</span>` : ''}
               </div>
-              <h4 class="text-xl font-bold text-primary mb-3 group-hover:text-blue-600 transition-colors leading-tight">
+              <h4 class="text-xl font-bold text-primary group-hover:text-blue-600 transition-colors leading-tight mb-0">
                 ${p.name}
               </h4>
-              <div class="h-1 w-12 bg-blue-500/20 rounded-full mb-4 group-hover:w-full transition-all duration-500"></div>
-              <p class="text-sm text-secondary leading-relaxed opacity-80 italic">
-                "${p.info}"
-              </p>
             </div>
             <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
           `;
@@ -888,8 +884,7 @@
                             <span class="text-[10px] sm:text-xs font-bold text-white bg-blue-800 px-2 py-1 rounded">AÑO ${p.year}</span>
                             <span class="text-[10px] sm:text-xs font-bold text-secondary card-bg px-2 py-1 rounded uppercase border border-subtle transition-colors duration-300">${p.pos}</span>
                         </div>
-                        <h4 class="font-bold text-base sm:text-lg text-primary transition-colors duration-300">${p.name}</h4>
-                        <p class="text-xs sm:text-sm text-secondary mt-2 transition-colors duration-300">${p.info}</p>
+                        <h4 class="font-bold text-base sm:text-lg text-primary transition-colors duration-300 mb-0">${p.name}</h4>
                     `;
             squadGrid.appendChild(card);
           });
