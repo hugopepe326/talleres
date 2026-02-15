@@ -13,8 +13,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 
       :root {
         --primary-blue: #002d72;
@@ -30,10 +32,15 @@
       }
 
       body {
-        font-family: "Outfit", "Inter", sans-serif;
+        font-family: "Plus Jakarta Sans", sans-serif;
         transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
+        letter-spacing: -0.01em;
+      }
+
+      h1, h2, h3, h4, .font-black {
+        font-family: "Bricolage Grotesque", sans-serif;
       }
 
       /* ===== LIGHT MODE ===== */
@@ -73,11 +80,16 @@
       /* Glassmorphism Classes */
       .glass-card {
         background: var(--glass-bg);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border: 1px solid var(--glass-border);
-        box-shadow: 0 8px 32px 0 var(--shadow-color);
-        transition: all 0.3s ease;
+        box-shadow: 0 4px 24px -1px var(--shadow-color);
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .glass-card:hover {
+        border-color: rgba(59, 130, 246, 0.5);
+        box-shadow: 0 12px 40px -5px var(--shadow-color), 0 0 20px -5px rgba(59, 130, 246, 0.2);
+        transform: translateY(-4px);
       }
 
       /* Header gradient */
@@ -151,6 +163,15 @@
       body.dark ::-webkit-scrollbar-thumb { background: #334155; }
       ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
 
+      /* Shield visibility fixes */
+      .cat-shield {
+        transition: all 0.5s ease;
+        filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
+      }
+      .cat-shield:hover {
+        transform: scale(1.1) rotate(5deg);
+        filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+      }
       /* Micro-interactions */
       .btn-hover {
         transition: transform 0.2s ease, filter 0.2s ease;
@@ -243,8 +264,7 @@
           <img
             src="escudo.png"
             alt="Escudo"
-            class="w-10 h-10 object-contain"
-            style="mix-blend-mode: screen"
+            class="w-10 h-10 object-contain h-shield"
           />
           <span class="font-bold text-sm uppercase tracking-wide"
             >Temporadas</span
@@ -271,7 +291,7 @@
     >
       <div class="max-w-7xl mx-auto flex justify-between items-center gap-3">
         <!-- Left: Logo + Title -->
-        <div class="flex items-center gap-3 min-w-0">
+        <div class="flex items-center gap-3 min-w-0" id="headerBrand">
           <!-- Mobile hamburger -->
           <button
             onclick="openSidebar()"
@@ -282,13 +302,13 @@
             <i class="fa fa-bars"></i>
           </button>
           <div
-            class="transform transition hover:scale-105 duration-300 flex-shrink-0 hidden sm:block"
+            class="transform transition-all duration-500 hover:rotate-12 flex-shrink-0 hidden sm:block cursor-pointer"
+            onclick="scrollToTop()"
           >
             <img
               src="escudo.png"
               alt="Escudo Club Atlético Talleres"
-              class="w-12 h-12 md:w-14 md:h-14 drop-shadow-lg object-contain"
-              style="mix-blend-mode: screen"
+              class="w-12 h-12 md:w-14 md:h-14 header-shield h-shield"
             />
           </div>
           <div class="min-w-0">
@@ -299,9 +319,9 @@
               ><span class="text-blue-300">ALBIAZUL</span>
             </h1>
             <p
-              class="text-blue-200/70 text-[10px] sm:text-xs font-medium tracking-wide mt-0.5"
+              class="text-blue-200/70 text-[10px] sm:text-xs font-black tracking-[0.1em] mt-0.5 uppercase"
             >
-              PLANTELES 1913 - 2026
+              Planteles 1913 — 2026
             </p>
           </div>
         </div>
@@ -587,9 +607,9 @@
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-center gap-10">
           <div class="flex flex-col items-center md:items-start gap-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                <i class="fa fa-shield-alt text-white"></i>
+            <div class="flex items-center gap-3 group cursor-pointer">
+              <div class="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center shadow-inner group-hover:bg-blue-600 transition-colors duration-500">
+                <img src="escudo_clean.png" class="w-8 h-8 object-contain footer-shield cat-shield" alt="T" />
               </div>
               <h3 class="text-2xl font-black text-primary tracking-tighter uppercase">Talleres <span class="text-blue-600">Histórico</span></h3>
             </div>
@@ -614,7 +634,7 @@
         <div class="h-px w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent my-10"></div>
 
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-muted">
-          <p>© 2024 Proyecto Vibe Coding - Pasión Gallarda</p>
+          <p>@2026 Proyecto hecho por Federico López</p>
           <div class="flex gap-8">
             <a href="#" class="hover:text-blue-600 transition-colors">Legales</a>
             <a href="#" class="hover:text-blue-600 transition-colors">Archivo</a>
@@ -686,7 +706,17 @@
         const icon = document.querySelector("#themeToggle i");
         const mobileIcon = document.getElementById("mobileThemeIcon");
         const mobileLabel = document.getElementById("mobileThemeLabel");
+        const footerShield = document.querySelector(".footer-shield");
+        const hShields = document.querySelectorAll(".h-shield");
         
+        // Header & Sidebar shields are on dark background, always use the one with white details
+        hShields.forEach(s => s.src = "escudo.png");
+        
+        // Footer shield changes based on background
+        if (footerShield) {
+          footerShield.src = isDark ? "escudo.png" : "escudo_clean.png";
+        }
+
         if (isDark) {
           icon.className = "fa fa-moon";
           if (mobileIcon) mobileIcon.className = "fa fa-sun text-lg";
@@ -815,30 +845,43 @@
         squadGrid.innerHTML = "";
         players.forEach((p, i) => {
           const card = document.createElement("div");
-          card.className = "glass-card p-6 rounded-2xl player-card relative overflow-hidden group stagger-up";
-          card.style.animationDelay = `${i * 30}ms`;
-
-          const posClass = `badge-${p.pos.toLowerCase()}`;
+          card.className = "glass-card p-6 rounded-2xl player-card relative overflow-hidden group opacity-0 translate-y-8";
+          
           const jerseyNum = p.num && p.num !== "-" ? p.num : "";
+          const posClass = `badge-${p.pos.toLowerCase()}`;
 
           card.innerHTML = `
-            <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
-              <span class="text-8xl font-black italic">${jerseyNum}</span>
+            <div class="absolute -right-4 -top-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-700">
+              <span class="text-9xl font-black italic tracking-tighter transition-transform duration-1000 group-hover:scale-110 block">${jerseyNum}</span>
             </div>
             <div class="relative z-10">
-              <div class="flex items-center justify-between mb-4">
-                <span class="${posClass} text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+              <div class="flex items-center justify-between mb-5">
+                <span class="${posClass} text-[10px] font-black uppercase tracking-[0.15em] px-3 py-1 rounded-lg shadow-sm">
                   ${p.pos}
                 </span>
-                ${jerseyNum ? `<span class="text-xl font-black text-blue-500/50 group-hover:text-blue-500 transition-colors">#${p.num}</span>` : ''}
+                ${jerseyNum ? `<span class="text-xl font-black text-blue-500/30 group-hover:text-blue-500 transition-all duration-500">#${p.num}</span>` : ''}
               </div>
-              <h4 class="text-xl font-bold text-primary group-hover:text-blue-600 transition-colors leading-tight mb-0">
+              <h4 class="text-2xl font-black text-primary group-hover:text-blue-600 transition-colors leading-none mb-1 tracking-tight">
                 ${p.name}
               </h4>
+              <div class="h-1 w-8 bg-blue-500/10 rounded-full group-hover:w-full group-hover:bg-blue-500/30 transition-all duration-700 mt-4"></div>
             </div>
-            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-700"></div>
           `;
           squadGrid.appendChild(card);
+        });
+
+        // Advanced GSAP Stagger Reveal
+        gsap.to(".player-card", {
+          opacity: 1,
+          y: 0,
+          stagger: {
+            each: 0.04,
+            from: "start"
+          },
+          duration: 1.2,
+          ease: "expo.out",
+          clearProps: "transform"
         });
       }
 
@@ -901,7 +944,56 @@
         loadTheme();
         initYearList();
         updateContent();
+        initAnimations();
       };
+
+      function initAnimations() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Header Reveal
+        gsap.from("#mainNav", {
+          y: -100,
+          opacity: 0,
+          duration: 1.2,
+          ease: "expo.out"
+        });
+
+        // Hero Reveal
+        gsap.from("#yearHeader", {
+          scale: 0.95,
+          opacity: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          delay: 0.3
+        });
+
+        // Sections Reveal on Scroll
+        const sections = ["#historicalPhotos", "#squadGrid"];
+        sections.forEach(sec => {
+          gsap.from(sec, {
+            scrollTrigger: {
+              trigger: sec,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+          });
+        });
+
+        // Micro-interactions for buttons
+        const navButtons = document.querySelectorAll(".glass-card, button, .theme-switch");
+        navButtons.forEach(btn => {
+          btn.addEventListener("mouseenter", () => {
+            gsap.to(btn, { scale: 1.05, duration: 0.3, ease: "back.out(2)" });
+          });
+          btn.addEventListener("mouseleave", () => {
+            gsap.to(btn, { scale: 1, duration: 0.3, ease: "power2.out" });
+          });
+        });
+      }
     </script>
   </body>
 </html>
