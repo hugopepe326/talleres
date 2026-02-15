@@ -1,0 +1,1392 @@
+<!doctype html >
+<!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="es"
+ xmlns:fb="http://ogp.me/ns/fb#"> <!--<![endif]-->
+<head>
+    <title>Página no encontrada | Abri La Cancha</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="pingback" href="https://abrilacancha.com.ar/xmlrpc.php" />
+    <link rel="icon" type="image/png" href="http://xenen.com.ar/wp-content/uploads/favxen.png"><link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Abri La Cancha &raquo; Feed" href="https://abrilacancha.com.ar/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Abri La Cancha &raquo; Feed de los comentarios" href="https://abrilacancha.com.ar/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"wpemoji":"https:\/\/abrilacancha.com.ar\/wp-includes\/js\/wp-emoji.js?ver=5.5.17","twemoji":"https:\/\/abrilacancha.com.ar\/wp-includes\/js\/twemoji.js?ver=5.5.17"}};
+			/**
+ * @output wp-includes/js/wp-emoji-loader.js
+ */
+
+( function( window, document, settings ) {
+	var src, ready, ii, tests;
+
+	// Create a canvas element for testing native browser support of emoji.
+	var canvas = document.createElement( 'canvas' );
+	var context = canvas.getContext && canvas.getContext( '2d' );
+
+	/**
+	 * Checks if two sets of Emoji characters render the same visually.
+	 *
+	 * @since 4.9.0
+	 *
+	 * @private
+	 *
+	 * @param {number[]} set1 Set of Emoji character codes.
+	 * @param {number[]} set2 Set of Emoji character codes.
+	 *
+	 * @return {boolean} True if the two sets render the same.
+	 */
+	function emojiSetsRenderIdentically( set1, set2 ) {
+		var stringFromCharCode = String.fromCharCode;
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set1 ), 0, 0 );
+		var rendered1 = canvas.toDataURL();
+
+		// Cleanup from previous test.
+		context.clearRect( 0, 0, canvas.width, canvas.height );
+		context.fillText( stringFromCharCode.apply( this, set2 ), 0, 0 );
+		var rendered2 = canvas.toDataURL();
+
+		return rendered1 === rendered2;
+	}
+
+	/**
+	 * Detects if the browser supports rendering emoji or flag emoji.
+	 *
+	 * Flag emoji are a single glyph made of two characters, so some browsers
+	 * (notably, Firefox OS X) don't support them.
+	 *
+	 * @since 4.2.0
+	 *
+	 * @private
+	 *
+	 * @param {string} type Whether to test for support of "flag" or "emoji".
+	 *
+	 * @return {boolean} True if the browser can render emoji, false if it cannot.
+	 */
+	function browserSupportsEmoji( type ) {
+		var isIdentical;
+
+		if ( ! context || ! context.fillText ) {
+			return false;
+		}
+
+		/*
+		 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+		 * it doesn't work when the font is bolder than 500 weight. So, we
+		 * check for bold rendering support to avoid invisible emoji in Chrome.
+		 */
+		context.textBaseline = 'top';
+		context.font = '600 32px Arial';
+
+		switch ( type ) {
+			case 'flag':
+				/*
+				 * Test for Transgender flag compatibility. This flag is shortlisted for the Emoji 13 spec,
+				 * but has landed in Twemoji early, so we can add support for it, too.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (white flag emoji + transgender symbol).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0x1F3F3, 0xFE0F, 0x200D, 0x26A7, 0xFE0F ],
+					[ 0x1F3F3, 0xFE0F, 0x200B, 0x26A7, 0xFE0F ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+				 * so gives us an easy test for full support.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly ([U] + [N]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDDFA, 0xD83C, 0xDDF3 ],
+					[ 0xD83C, 0xDDFA, 0x200B, 0xD83C, 0xDDF3 ]
+				);
+
+				if ( isIdentical ) {
+					return false;
+				}
+
+				/*
+				 * Test for English flag compatibility. England is a country in the United Kingdom, it
+				 * does not have a two letter locale code but rather an five letter sub-division code.
+				 *
+				 * To test for support, we try to render it, and compare the rendering to how it would look if
+				 * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[ 0xD83C, 0xDFF4, 0xDB40, 0xDC67, 0xDB40, 0xDC62, 0xDB40, 0xDC65, 0xDB40, 0xDC6E, 0xDB40, 0xDC67, 0xDB40, 0xDC7F ],
+					[ 0xD83C, 0xDFF4, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC62, 0x200B, 0xDB40, 0xDC65, 0x200B, 0xDB40, 0xDC6E, 0x200B, 0xDB40, 0xDC67, 0x200B, 0xDB40, 0xDC7F ]
+				);
+
+				return ! isIdentical;
+			case 'emoji':
+				/*
+				 * So easy, even a baby could do it!
+				 *
+				 *  To test for Emoji 13 support, try to render a new emoji: Man Feeding Baby.
+				 *
+				 * The Man Feeding Baby emoji is a ZWJ sequence combining 👨 Man, a Zero Width Joiner and 🍼 Baby Bottle.
+				 *
+				 * 0xD83D, 0xDC68 == Man emoji.
+				 * 0x200D == Zero-Width Joiner (ZWJ) that links the two code points for the new emoji or
+				 * 0x200B == Zero-Width Space (ZWS) that is rendered for clients not supporting the new emoji.
+				 * 0xD83C, 0xDF7C == Baby Bottle.
+				 *
+				 * When updating this test for future Emoji releases, ensure that individual emoji that make up the
+				 * sequence come from older emoji standards.
+				 */
+				isIdentical = emojiSetsRenderIdentically(
+					[0xD83D, 0xDC68, 0x200D, 0xD83C, 0xDF7C],
+					[0xD83D, 0xDC68, 0x200B, 0xD83C, 0xDF7C]
+				);
+
+				return ! isIdentical;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Adds a script to the head of the document.
+	 *
+	 * @ignore
+	 *
+	 * @since 4.2.0
+	 *
+	 * @param {Object} src The url where the script is located.
+	 * @return {void}
+	 */
+	function addScript( src ) {
+		var script = document.createElement( 'script' );
+
+		script.src = src;
+		script.defer = script.type = 'text/javascript';
+		document.getElementsByTagName( 'head' )[0].appendChild( script );
+	}
+
+	tests = Array( 'flag', 'emoji' );
+
+	settings.supports = {
+		everything: true,
+		everythingExceptFlag: true
+	};
+
+	/*
+	 * Tests the browser support for flag emojis and other emojis, and adjusts the
+	 * support settings accordingly.
+	 */
+	for( ii = 0; ii < tests.length; ii++ ) {
+		settings.supports[ tests[ ii ] ] = browserSupportsEmoji( tests[ ii ] );
+
+		settings.supports.everything = settings.supports.everything && settings.supports[ tests[ ii ] ];
+
+		if ( 'flag' !== tests[ ii ] ) {
+			settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[ tests[ ii ] ];
+		}
+	}
+
+	settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && ! settings.supports.flag;
+
+	// Sets DOMReady to false and assigns a ready function to settings.
+	settings.DOMReady = false;
+	settings.readyCallback = function() {
+		settings.DOMReady = true;
+	};
+
+	// When the browser can not render everything we need to load a polyfill.
+	if ( ! settings.supports.everything ) {
+		ready = function() {
+			settings.readyCallback();
+		};
+
+		/*
+		 * Cross-browser version of adding a dom ready event.
+		 */
+		if ( document.addEventListener ) {
+			document.addEventListener( 'DOMContentLoaded', ready, false );
+			window.addEventListener( 'load', ready, false );
+		} else {
+			window.attachEvent( 'onload', ready );
+			document.attachEvent( 'onreadystatechange', function() {
+				if ( 'complete' === document.readyState ) {
+					settings.readyCallback();
+				}
+			} );
+		}
+
+		src = settings.source || {};
+
+		if ( src.concatemoji ) {
+			addScript( src.concatemoji );
+		} else if ( src.wpemoji && src.twemoji ) {
+			addScript( src.twemoji );
+			addScript( src.wpemoji );
+		}
+	}
+
+} )( window, document, window._wpemojiSettings );
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='dashicons-css'  href='https://abrilacancha.com.ar/wp-includes/css/dashicons.css?ver=5.5.17' type='text/css' media='all' />
+<link rel='stylesheet' id='menu-icons-extra-css'  href='https://abrilacancha.com.ar/wp-content/plugins/menu-icons/css/extra.css?ver=0.13.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://abrilacancha.com.ar/wp-includes/css/dist/block-library/style.css?ver=5.5.17' type='text/css' media='all' />
+<link rel='stylesheet' id='awesome-weather-css'  href='https://abrilacancha.com.ar/wp-content/plugins/awesome-weather/awesome-weather.css?ver=5.5.17' type='text/css' media='all' />
+<style id='awesome-weather-inline-css' type='text/css'>
+.awesome-weather-wrap { font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 14px; line-height: 14px; }
+</style>
+<link rel='stylesheet' id='opensans-googlefont-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A400&#038;ver=5.5.17' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://abrilacancha.com.ar/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='google_font_open_sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C400%2C600%2C700&#038;ver=5.5.17' type='text/css' media='all' />
+<link rel='stylesheet' id='google_font_roboto-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A500%2C400italic%2C700%2C500italic%2C400&#038;ver=5.5.17' type='text/css' media='all' />
+<link rel='stylesheet' id='js_composer_front-css'  href='https://abrilacancha.com.ar/wp-content/plugins/js_composer/assets/css/js_composer.css?ver=4.5.3' type='text/css' media='all' />
+<link rel='stylesheet' id='td-theme-css'  href='https://abrilacancha.com.ar/wp-content/themes/Newspaper/style.css?ver=6.1' type='text/css' media='all' />
+<script type='text/javascript' src='https://abrilacancha.com.ar/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
+<link rel="https://api.w.org/" href="https://abrilacancha.com.ar/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://abrilacancha.com.ar/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://abrilacancha.com.ar/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.5.17" />
+<meta property="fb:app_id" content="1635764636694201"/><!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="https://abrilacancha.com.ar/wp-content/plugins/js_composer/assets/css/vc-ie8.css" media="screen"><![endif]-->
+<!-- JS generated by theme -->
+
+<script>
+    
+
+var td_blocks = []; //here we store all the items for the current page
+
+//td_block class - each ajax block uses a object of this class for requests
+function td_block() {
+    this.id = '';
+    this.block_type = 1; //block type id (1-234 etc)
+    this.atts = '';
+    this.td_column_number = '';
+    this.td_current_page = 1; //
+    this.post_count = 0; //from wp
+    this.found_posts = 0; //from wp
+    this.max_num_pages = 0; //from wp
+    this.td_filter_value = ''; //current live filter value
+    this.td_filter_ui_uid = ''; //used to select a item from the drop down filter
+    this.is_ajax_running = false;
+    this.td_user_action = ''; // load more or infinite loader (used by the animation)
+    this.header_color = '';
+    this.ajax_pagination_infinite_stop = ''; //show load more at page x
+}
+
+    
+    
+        // td_js_generator - mini detector
+        (function(){
+            var html_tag = document.getElementsByTagName("html")[0];
+
+            if(navigator.userAgent.indexOf("MSIE 10.0") > -1) {
+                html_tag.className+=' ie10';
+            }
+
+            if(!!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                html_tag.className+=' ie11';
+            }
+
+            if (/(iPad|iPhone|iPod)/g.test( navigator.userAgent )) {
+                html_tag.className+=' td-md-is-ios';
+            }
+
+            var user_agent = navigator.userAgent.toLowerCase();
+            if(user_agent.indexOf("android") > -1) {
+                html_tag.className+=' td-md-is-android';
+            }
+
+            if (navigator.userAgent.indexOf('Mac OS X') != -1) {
+                html_tag.className+=' td-md-is-os-x';
+            }
+
+            if(/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())) {
+               html_tag.className+=' td-md-is-chrome';
+            }
+
+            if (navigator.userAgent.indexOf('Firefox') != -1) {
+                html_tag.className+=' td-md-is-firefox';
+            }
+
+            if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+                html_tag.className+=' td-md-is-safari';
+            }
+
+        })();
+    
+    
+var td_viewport_interval_list=[{"limit_bottom":767,"sidebar_width":228},{"limit_bottom":1018,"sidebar_width":300},{"limit_bottom":1140,"sidebar_width":324}];
+var td_animation_stack_effect="type0";
+var tds_animation_stack=true;
+var td_animation_stack_specific_selectors=".entry-thumb, img";
+var td_animation_stack_general_selectors=".td-animation-stack img, .post img";
+var td_ajax_url="https:\/\/abrilacancha.com.ar\/wp-admin\/admin-ajax.php?td_theme_name=Newspaper&v=6.1";
+var td_get_template_directory_uri="https:\/\/abrilacancha.com.ar\/wp-content\/themes\/Newspaper";
+var tds_snap_menu="";
+var tds_logo_on_sticky="";
+var tds_header_style="10";
+var td_please_wait="Por favor espera...";
+var td_email_user_pass_incorrect="Usuario o contrase\u00f1a incorrecta!";
+var td_email_user_incorrect="Correo electr\u00f3nico o nombre de usuario incorrecto!";
+var td_email_incorrect="Correo electr\u00f3nico incorrecto!";
+var tds_more_articles_on_post_enable="";
+var tds_more_articles_on_post_time_to_wait="";
+var tds_more_articles_on_post_pages_distance_from_top=0;
+var tds_theme_color_site_wide="#4a8cc9";
+var tds_smart_sidebar="enabled";
+var td_theme_v="Ni4x";
+var td_theme_n="TmV3c3BhcGVy";
+var td_magnific_popup_translation_tPrev="Anterior (tecla de flecha izquierda)";
+var td_magnific_popup_translation_tNext="Siguiente (tecla de flecha derecha)";
+var td_magnific_popup_translation_tCounter="%curr% de %total%";
+var td_magnific_popup_translation_ajax_tError="El contenido de %url% no pudo cargarse.";
+var td_magnific_popup_translation_image_tError="La imagen #%curr% no pudo cargarse.";
+var td_ad_background_click_link="";
+var td_ad_background_click_target="";
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68349518-1', 'auto');
+  ga('send', 'pageview');
+
+</script><link rel="icon" href="https://abrilacancha.com.ar/wp-content/uploads/cropped-ALC-PERFIL-600X600-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://abrilacancha.com.ar/wp-content/uploads/cropped-ALC-PERFIL-600X600-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://abrilacancha.com.ar/wp-content/uploads/cropped-ALC-PERFIL-600X600-180x180.png" />
+<meta name="msapplication-TileImage" content="https://abrilacancha.com.ar/wp-content/uploads/cropped-ALC-PERFIL-600X600-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			.td-header-wrap .td-header-top-menu-full, .td-header-wrap .top-header-menu .sub-menu {
+    background-color: #3374b5;
+}		</style>
+		<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript><style id="wpforms-css-vars-root">
+				:root {
+					--wpforms-field-border-radius: 3px;
+--wpforms-field-border-style: solid;
+--wpforms-field-border-size: 1px;
+--wpforms-field-background-color: #ffffff;
+--wpforms-field-border-color: rgba( 0, 0, 0, 0.25 );
+--wpforms-field-border-color-spare: rgba( 0, 0, 0, 0.25 );
+--wpforms-field-text-color: rgba( 0, 0, 0, 0.7 );
+--wpforms-field-menu-color: #ffffff;
+--wpforms-label-color: rgba( 0, 0, 0, 0.85 );
+--wpforms-label-sublabel-color: rgba( 0, 0, 0, 0.55 );
+--wpforms-label-error-color: #d63637;
+--wpforms-button-border-radius: 3px;
+--wpforms-button-border-style: none;
+--wpforms-button-border-size: 1px;
+--wpforms-button-background-color: #066aab;
+--wpforms-button-border-color: #066aab;
+--wpforms-button-text-color: #ffffff;
+--wpforms-page-break-color: #066aab;
+--wpforms-background-image: none;
+--wpforms-background-position: center center;
+--wpforms-background-repeat: no-repeat;
+--wpforms-background-size: cover;
+--wpforms-background-width: 100px;
+--wpforms-background-height: 100px;
+--wpforms-background-color: rgba( 0, 0, 0, 0 );
+--wpforms-background-url: none;
+--wpforms-container-padding: 0px;
+--wpforms-container-border-style: none;
+--wpforms-container-border-width: 1px;
+--wpforms-container-border-color: #000000;
+--wpforms-container-border-radius: 3px;
+--wpforms-field-size-input-height: 43px;
+--wpforms-field-size-input-spacing: 15px;
+--wpforms-field-size-font-size: 16px;
+--wpforms-field-size-line-height: 19px;
+--wpforms-field-size-padding-h: 14px;
+--wpforms-field-size-checkbox-size: 16px;
+--wpforms-field-size-sublabel-spacing: 5px;
+--wpforms-field-size-icon-size: 1;
+--wpforms-label-size-font-size: 16px;
+--wpforms-label-size-line-height: 19px;
+--wpforms-label-size-sublabel-font-size: 14px;
+--wpforms-label-size-sublabel-line-height: 17px;
+--wpforms-button-size-font-size: 17px;
+--wpforms-button-size-height: 41px;
+--wpforms-button-size-padding-h: 15px;
+--wpforms-button-size-margin-top: 10px;
+--wpforms-container-shadow-size-box-shadow: none;
+
+				}
+			</style></head>
+
+
+<body class="error404 td-sport-stack wpb-js-composer js-comp-ver-4.5.3 vc_responsive td-animation-stack-type0 td-boxed-layout" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+
+
+<div class="td-scroll-up"><i class="td-icon-menu-up"></i></div>
+
+<div id="td-outer-wrap">
+
+    <div class="td-transition-content-and-menu td-mobile-nav-wrap">
+        <div id="td-mobile-nav">
+    <!-- mobile menu close -->
+    <div class="td-mobile-close">
+        <a href="#">Cerrar</a>
+        <div class="td-nav-triangle"></div>
+    </div>
+
+    <div class="td-mobile-content">
+        <div class="menu-menu-container"><ul id="menu-menu" class=""><li id="menu-item-1429" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-first menu-item-1429"><a href="https://abrilacancha.com.ar/category/informes/"><i class="_mi _before dashicons dashicons-media-text" aria-hidden="true"></i><span>Informes ALC</span></a></li>
+<li id="menu-item-1426" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1426"><a href="https://abrilacancha.com.ar/category/charlas-de-vestuario/"><i class="_mi _before dashicons dashicons-video-alt" aria-hidden="true"></i><span>Charlas de Vestuario</span></a></li>
+<li id="menu-item-1425" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1425"><a href="https://abrilacancha.com.ar/category/abri-la-cancha/"><i class="_mi _before dashicons dashicons-controls-volumeon" aria-hidden="true"></i><span>Abri la Cancha Radio</span></a></li>
+<li id="menu-item-1428" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1428"><a href="https://abrilacancha.com.ar/category/heroes/"><i class="_mi _before dashicons dashicons-shield" aria-hidden="true"></i><span>Héroes de ayer</span></a></li>
+<li id="menu-item-1436" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1436"><a href="#">Otras Secciones</a>
+<ul class="sub-menu">
+	<li id="menu-item-1432" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1432"><a href="https://abrilacancha.com.ar/category/campanas/">Campañas</a></li>
+	<li id="menu-item-1427" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1427"><a href="https://abrilacancha.com.ar/category/apiladas-deportivas/">Apiladas Deportivas</a></li>
+	<li id="menu-item-1430" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1430"><a href="https://abrilacancha.com.ar/category/historias/">Historias Mundialistas</a></li>
+	<li id="menu-item-1431" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1431"><a href="https://abrilacancha.com.ar/category/abri_la_cancha_tv/">Abri La Cancha TV</a></li>
+	<li id="menu-item-1433" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1433"><a href="https://abrilacancha.com.ar/category/articulos/">Artículos</a></li>
+	<li id="menu-item-1435" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1435"><a href="https://abrilacancha.com.ar/category/partidazos/">Partidazos</a></li>
+	<li id="menu-item-1434" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1434"><a href="https://abrilacancha.com.ar/category/tiempo/">Un buraco en el tiempo</a></li>
+</ul>
+</li>
+</ul></div>    </div>
+</div>
+    </div>
+
+        <div class="td-transition-content-and-menu td-content-wrap">
+
+
+
+<!--
+Header style 10
+-->
+
+<div class="td-header-wrap td-header-style-10">
+
+	<div class="td-header-top-menu-full">
+		<div class="td-container td-header-row td-header-top-menu">
+            
+    <div class="top-bar-style-1">
+        <div class="td-header-sp-top-menu">
+
+    <div class="td_data_time">sábado, febrero 14, 2026</div><div class="menu-top-container"><ul id="menu-top" class="top-header-menu"><li id="menu-item-1423" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-first td-menu-item td-normal-menu menu-item-1423"><a href="https://abrilacancha.com.ar/autor/">Autor</a></li>
+<li id="menu-item-1424" class="menu-item menu-item-type-post_type menu-item-object-page td-menu-item td-normal-menu menu-item-1424"><a href="https://abrilacancha.com.ar/contacto/">Contacto</a></li>
+</ul></div></div>
+        <div class="td-header-sp-top-widget">
+    <span class="td-social-icon-wrap"><a target="_blank" href="#" title="Twitter"><i class="td-icon-font td-icon-twitter"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="#" title="Vimeo"><i class="td-icon-font td-icon-vimeo"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="#" title="VKontakte"><i class="td-icon-font td-icon-vk"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="#" title="Youtube"><i class="td-icon-font td-icon-youtube"></i></a></span></div>
+    </div>
+
+		</div>
+	</div>
+
+    <div class="td-banner-wrap-full td-logo-wrap-full">
+        <div class="td-header-sp-logo">
+            		<a class="td-logo" itemprop="url" href="https://abrilacancha.com.ar/"><img src="http://abrilacancha.com.ar/wp-content/uploads/BANNER-WEB-ALC.jpg" alt="Xenen" title="Esto no es copypaste, es investigación"/></a>
+		<meta itemprop="name" content="Abri La Cancha">
+
+	        </div>
+    </div>
+
+	<div class="td-header-menu-wrap-full">
+		<div class="td-header-menu-wrap td-header-gradient">
+			<div class="td-container td-header-row td-header-main-menu">
+				<div id="td-header-menu" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+    <div id="td-top-mobile-toggle"><a href="#"><i class="td-icon-font td-icon-mobile"></i></a></div>
+    <div class="td-main-menu-logo">
+                <a itemprop="url" href="https://abrilacancha.com.ar/"><img src="http://abrilacancha.com.ar/wp-content/uploads/BANNER-WEB-ALC.jpg" alt="Xenen" title="Esto no es copypaste, es investigación"/></a>
+        <meta itemprop="name" content="Abri La Cancha">
+        </div>
+    <div class="menu-menu-container"><ul id="menu-menu-1" class="sf-menu"><li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-first td-menu-item td-normal-menu menu-item-1429"><a href="https://abrilacancha.com.ar/category/informes/"><i class="_mi _before dashicons dashicons-media-text" aria-hidden="true"></i><span>Informes ALC</span></a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1426"><a href="https://abrilacancha.com.ar/category/charlas-de-vestuario/"><i class="_mi _before dashicons dashicons-video-alt" aria-hidden="true"></i><span>Charlas de Vestuario</span></a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1425"><a href="https://abrilacancha.com.ar/category/abri-la-cancha/"><i class="_mi _before dashicons dashicons-controls-volumeon" aria-hidden="true"></i><span>Abri la Cancha Radio</span></a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1428"><a href="https://abrilacancha.com.ar/category/heroes/"><i class="_mi _before dashicons dashicons-shield" aria-hidden="true"></i><span>Héroes de ayer</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children td-menu-item td-normal-menu menu-item-1436"><a href="#">Otras Secciones</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1432"><a href="https://abrilacancha.com.ar/category/campanas/">Campañas</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1427"><a href="https://abrilacancha.com.ar/category/apiladas-deportivas/">Apiladas Deportivas</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1430"><a href="https://abrilacancha.com.ar/category/historias/">Historias Mundialistas</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1431"><a href="https://abrilacancha.com.ar/category/abri_la_cancha_tv/">Abri La Cancha TV</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1433"><a href="https://abrilacancha.com.ar/category/articulos/">Artículos</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1435"><a href="https://abrilacancha.com.ar/category/partidazos/">Partidazos</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category td-menu-item td-normal-menu menu-item-1434"><a href="https://abrilacancha.com.ar/category/tiempo/">Un buraco en el tiempo</a></li>
+</ul>
+</li>
+</ul></div></div>
+
+
+<div class="td-search-wrapper">
+    <div id="td-top-search">
+        <!-- Search -->
+        <div class="header-search-wrap">
+            <div class="dropdown header-search">
+                <a id="td-header-search-button" href="#" role="button" class="dropdown-toggle " data-toggle="dropdown"><i class="td-icon-search"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="header-search-wrap">
+	<div class="dropdown header-search">
+		<div class="td-drop-down-search" aria-labelledby="td-header-search-button">
+			<form role="search" method="get" class="td-search-form" action="https://abrilacancha.com.ar/">
+				<div class="td-head-form-search-wrap">
+					<input id="td-header-search" type="text" value="" name="s" autocomplete="off" /><input class="wpb_button wpb_btn-inverse btn" type="submit" id="td-header-search-top" value="Buscar" />
+				</div>
+			</form>
+			<div id="td-aj-search"></div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="td-banner-wrap-full td-banner-bg">
+        <div class="td-container-header td-header-row td-header-header">
+            <div class="td-header-sp-recs">
+                <div class="td-header-rec-wrap">
+    
+</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="td-main-content-wrap">
+    <div class="td-container">
+        <div class="td-pb-row">
+            <div class="td-pb-span12">
+                <div class="td-404-title">
+                    Ups... Error 404                </div>
+
+                <div class="td-404-sub-title">
+                    Lo sentimos, pero la página que busca no existe.                </div>
+
+                <div class="td-404-sub-sub-title">
+                    Usted puede ir a                    <a href="https://abrilacancha.com.ar/">PÁGINA PRINCIPAL</a>
+
+                </div>
+
+
+                <h4 class="block-title"><span>NUESTRAS ÚLTIMAS ENTRADAS</span></h4>
+
+                
+
+	<div class="td-block-row">
+
+	<div class="td-block-span4">
+
+        <div class="td_module_1 td_module_wrap td-animation-stack" itemscope itemtype="https://schema.org/Article">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://abrilacancha.com.ar/2026/01/18/programa-de-abri-la-cancha-viernes-9-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Programa de Abrí la Cancha / Viernes 9 de enero de 2026 / Radio Gráfica"><img width="324" height="160" itemprop="image" class="entry-thumb" src="https://abrilacancha.com.ar/wp-content/uploads/maxresdefault-71-324x160.jpg" alt="" title="Programa de Abrí la Cancha / Viernes 9 de enero de 2026 / Radio Gráfica"/><span class="td-video-play-ico"><img width="40" class="td-retina" src="https://abrilacancha.com.ar/wp-content/themes/Newspaper/images/icons/ico-video-large.png" alt="video"/></span></a></div>                            </div>
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://abrilacancha.com.ar/2026/01/18/programa-de-abri-la-cancha-viernes-9-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Programa de Abrí la Cancha / Viernes 9 de enero de 2026 / Radio Gráfica">Programa de Abrí la Cancha / Viernes 9 de enero de...</a></h3>
+            <div class="td-module-meta-info">
+                <div class="td-post-author-name"><a itemprop="author" href="https://abrilacancha.com.ar/author/carlos-aira/">Carlos Aira</a> <span>-</span> </div>                <div class="td-post-date"><time  itemprop="dateCreated" class="entry-date updated td-module-date" datetime="2026-01-18T00:40:12+00:00" >18 enero, 2026</time><meta itemprop="interactionCount" content="UserComments:0"/></div>                            </div>
+
+            
+            <meta itemprop="author" content = "Carlos Aira"><meta itemprop="interactionCount" content="UserComments:0"/>        </div>
+
+        
+	</div> <!-- ./td-block-span4 -->
+
+	<div class="td-block-span4">
+
+        <div class="td_module_1 td_module_wrap td-animation-stack" itemscope itemtype="https://schema.org/Article">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://abrilacancha.com.ar/2026/01/18/programa-de-abri-la-cancha-jueves-8-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Programa de Abrí la Cancha / Jueves 8 de enero de 2026 / Radio Gráfica"><img width="324" height="160" itemprop="image" class="entry-thumb" src="https://abrilacancha.com.ar/wp-content/uploads/maxresdefault-70-324x160.jpg" alt="" title="Programa de Abrí la Cancha / Jueves 8 de enero de 2026 / Radio Gráfica"/><span class="td-video-play-ico"><img width="40" class="td-retina" src="https://abrilacancha.com.ar/wp-content/themes/Newspaper/images/icons/ico-video-large.png" alt="video"/></span></a></div>                            </div>
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://abrilacancha.com.ar/2026/01/18/programa-de-abri-la-cancha-jueves-8-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Programa de Abrí la Cancha / Jueves 8 de enero de 2026 / Radio Gráfica">Programa de Abrí la Cancha / Jueves 8 de enero de...</a></h3>
+            <div class="td-module-meta-info">
+                <div class="td-post-author-name"><a itemprop="author" href="https://abrilacancha.com.ar/author/carlos-aira/">Carlos Aira</a> <span>-</span> </div>                <div class="td-post-date"><time  itemprop="dateCreated" class="entry-date updated td-module-date" datetime="2026-01-18T00:37:14+00:00" >18 enero, 2026</time><meta itemprop="interactionCount" content="UserComments:0"/></div>                            </div>
+
+            
+            <meta itemprop="author" content = "Carlos Aira"><meta itemprop="interactionCount" content="UserComments:0"/>        </div>
+
+        
+	</div> <!-- ./td-block-span4 -->
+
+	<div class="td-block-span4">
+
+        <div class="td_module_1 td_module_wrap td-animation-stack" itemscope itemtype="https://schema.org/Article">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://abrilacancha.com.ar/2026/01/18/programa-de-abri-la-cancha-martes-7-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Programa de Abrí la Cancha / Miércoles 7 de enero de 2026 / Radio Gráfica"><img width="324" height="160" itemprop="image" class="entry-thumb" src="https://abrilacancha.com.ar/wp-content/uploads/maxresdefault-69-324x160.jpg" alt="" title="Programa de Abrí la Cancha / Miércoles 7 de enero de 2026 / Radio Gráfica"/><span class="td-video-play-ico"><img width="40" class="td-retina" src="https://abrilacancha.com.ar/wp-content/themes/Newspaper/images/icons/ico-video-large.png" alt="video"/></span></a></div>                            </div>
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://abrilacancha.com.ar/2026/01/18/programa-de-abri-la-cancha-martes-7-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Programa de Abrí la Cancha / Miércoles 7 de enero de 2026 / Radio Gráfica">Programa de Abrí la Cancha / Miércoles 7 de enero de...</a></h3>
+            <div class="td-module-meta-info">
+                <div class="td-post-author-name"><a itemprop="author" href="https://abrilacancha.com.ar/author/carlos-aira/">Carlos Aira</a> <span>-</span> </div>                <div class="td-post-date"><time  itemprop="dateCreated" class="entry-date updated td-module-date" datetime="2026-01-18T00:28:34+00:00" >18 enero, 2026</time><meta itemprop="interactionCount" content="UserComments:0"/></div>                            </div>
+
+            
+            <meta itemprop="author" content = "Carlos Aira"><meta itemprop="interactionCount" content="UserComments:0"/>        </div>
+
+        
+	</div> <!-- ./td-block-span4 --></div><!--./row-fluid-->
+
+	<div class="td-block-row">
+
+	<div class="td-block-span4">
+
+        <div class="td_module_1 td_module_wrap td-animation-stack" itemscope itemtype="https://schema.org/Article">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://abrilacancha.com.ar/2026/01/18/abri-la-cancha-martes-6-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Abrí la Cancha / Martes 6 de enero de 2026 / Radio Gráfica"><img width="324" height="160" itemprop="image" class="entry-thumb" src="https://abrilacancha.com.ar/wp-content/uploads/maxresdefault-67-324x160.jpg" alt="" title="Abrí la Cancha / Martes 6 de enero de 2026 / Radio Gráfica"/><span class="td-video-play-ico"><img width="40" class="td-retina" src="https://abrilacancha.com.ar/wp-content/themes/Newspaper/images/icons/ico-video-large.png" alt="video"/></span></a></div>                            </div>
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://abrilacancha.com.ar/2026/01/18/abri-la-cancha-martes-6-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Abrí la Cancha / Martes 6 de enero de 2026 / Radio Gráfica">Abrí la Cancha / Martes 6 de enero de 2026 /...</a></h3>
+            <div class="td-module-meta-info">
+                <div class="td-post-author-name"><a itemprop="author" href="https://abrilacancha.com.ar/author/carlos-aira/">Carlos Aira</a> <span>-</span> </div>                <div class="td-post-date"><time  itemprop="dateCreated" class="entry-date updated td-module-date" datetime="2026-01-18T00:21:00+00:00" >18 enero, 2026</time><meta itemprop="interactionCount" content="UserComments:0"/></div>                            </div>
+
+            
+            <meta itemprop="author" content = "Carlos Aira"><meta itemprop="interactionCount" content="UserComments:0"/>        </div>
+
+        
+	</div> <!-- ./td-block-span4 -->
+
+	<div class="td-block-span4">
+
+        <div class="td_module_1 td_module_wrap td-animation-stack" itemscope itemtype="https://schema.org/Article">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://abrilacancha.com.ar/2026/01/18/abri-la-cancha-lunes-5-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Abrí la Cancha / Lunes 5 de enero de 2026 / Radio Gráfica"><img width="324" height="160" itemprop="image" class="entry-thumb" src="https://abrilacancha.com.ar/wp-content/uploads/maxresdefault-68-324x160.jpg" alt="" title="Abrí la Cancha / Lunes 5 de enero de 2026 / Radio Gráfica"/><span class="td-video-play-ico"><img width="40" class="td-retina" src="https://abrilacancha.com.ar/wp-content/themes/Newspaper/images/icons/ico-video-large.png" alt="video"/></span></a></div>                            </div>
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://abrilacancha.com.ar/2026/01/18/abri-la-cancha-lunes-5-de-enero-de-2026-radio-grafica/" rel="bookmark" title="Abrí la Cancha / Lunes 5 de enero de 2026 / Radio Gráfica">Abrí la Cancha / Lunes 5 de enero de 2026 /...</a></h3>
+            <div class="td-module-meta-info">
+                <div class="td-post-author-name"><a itemprop="author" href="https://abrilacancha.com.ar/author/carlos-aira/">Carlos Aira</a> <span>-</span> </div>                <div class="td-post-date"><time  itemprop="dateCreated" class="entry-date updated td-module-date" datetime="2026-01-18T00:17:48+00:00" >18 enero, 2026</time><meta itemprop="interactionCount" content="UserComments:0"/></div>                            </div>
+
+            
+            <meta itemprop="author" content = "Carlos Aira"><meta itemprop="interactionCount" content="UserComments:0"/>        </div>
+
+        
+	</div> <!-- ./td-block-span4 -->
+
+	<div class="td-block-span4">
+
+        <div class="td_module_1 td_module_wrap td-animation-stack" itemscope itemtype="https://schema.org/Article">
+            <div class="td-module-image">
+                <div class="td-module-thumb"><a href="https://abrilacancha.com.ar/2026/01/18/victor-lupo-y-los-45-anos-de-mundo-amateur/" rel="bookmark" title="Víctor Lupo y los 45 años de Mundo Amateur"><img width="324" height="160" itemprop="image" class="entry-thumb" src="https://abrilacancha.com.ar/wp-content/uploads/maxresdefault-66-324x160.jpg" alt="" title="Víctor Lupo y los 45 años de Mundo Amateur"/><span class="td-video-play-ico"><img width="40" class="td-retina" src="https://abrilacancha.com.ar/wp-content/themes/Newspaper/images/icons/ico-video-large.png" alt="video"/></span></a></div>                            </div>
+            <h3 itemprop="name" class="entry-title td-module-title"><a itemprop="url" href="https://abrilacancha.com.ar/2026/01/18/victor-lupo-y-los-45-anos-de-mundo-amateur/" rel="bookmark" title="Víctor Lupo y los 45 años de Mundo Amateur">Víctor Lupo y los 45 años de Mundo Amateur</a></h3>
+            <div class="td-module-meta-info">
+                <div class="td-post-author-name"><a itemprop="author" href="https://abrilacancha.com.ar/author/carlos-aira/">Carlos Aira</a> <span>-</span> </div>                <div class="td-post-date"><time  itemprop="dateCreated" class="entry-date updated td-module-date" datetime="2026-01-18T00:14:17+00:00" >18 enero, 2026</time><meta itemprop="interactionCount" content="UserComments:0"/></div>                            </div>
+
+            
+            <meta itemprop="author" content = "Carlos Aira"><meta itemprop="interactionCount" content="UserComments:0"/>        </div>
+
+        
+	</div> <!-- ./td-block-span4 --></div><!--./row-fluid-->            </div>
+        </div> <!-- /.td-pb-row -->
+    </div> <!-- /.td-container -->
+</div> <!-- /.td-main-content-wrap -->
+
+<!-- Footer -->
+<div class="td-footer-wrapper">
+    <div class="td-container">
+
+	    <div class="td-pb-row">
+		    <div class="td-pb-span12">
+			    		    </div>
+	    </div>
+
+        <div class="td-pb-row">
+
+            <div class="td-pb-span4">
+                            </div>
+
+            <div class="td-pb-span4">
+                            </div>
+
+            <div class="td-pb-span4">
+                            </div>
+        </div>
+    </div>
+<div class="td-footer-bottom-full">
+    <div class="td-container">
+        <div class="td-pb-row">
+            <div class="td-pb-span3"><aside class="footer-logo-wrap"><a href="https://abrilacancha.com.ar/"><img class="td-retina-data" src="http://abrilacancha.com.ar/wp-content/uploads/ALC-PERFIL-600X600.png" data-retina="http://abrilacancha.com.ar/wp-content/uploads/ALC-PERFIL-600X600.png" alt=""/></a></aside></div><div class="td-pb-span5"><aside class="footer-text-wrap"><div class="block-title"><span>SOBRE NOSOTROS</span></div>Bienvenidos a una nueva etapa. Ya no somos Xenen.com.ar. El sueño que comenzó en julio de 2008 mutó en un proyecto integral. Hoy somos ABRI LA CANCHA. La web de historia y análisis del fútbol argentino. Con su programa diario en Radio Gráfica (20 a 21hs) y un staff renovado de periodistas y colaboradores. Seguimos firmes en la convicción de generar contenidos de calidad. Ayer decíamos que No eramos copypaste; hoy decimos que en Abrí la Cancha siempre aprendés algo...<div class="footer-email-wrap">Contáctanos: <a href="mailto:aira@abrilacancha.com.ar">aira@abrilacancha.com.ar</a></div></aside></div><div class="td-pb-span4"><aside class="footer-social-wrap td-social-style-2"><div class="block-title"><span>SÍGUENOS</span></div><span class="td-social-icon-wrap"><a target="_blank" href="#" title="Twitter"><i class="td-icon-font td-icon-twitter"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="#" title="Vimeo"><i class="td-icon-font td-icon-vimeo"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="#" title="VKontakte"><i class="td-icon-font td-icon-vk"></i></a></span><span class="td-social-icon-wrap"><a target="_blank" href="#" title="Youtube"><i class="td-icon-font td-icon-youtube"></i></a></span></aside></div>        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Sub Footer -->
+    <div class="td-sub-footer-container">
+        <div class="td-container">
+            <div class="td-pb-row">
+                <div class="td-pb-span7 td-sub-footer-menu">
+                        <div class="menu-footer-container"><ul id="menu-footer" class="td-subfooter-menu"><li id="menu-item-1440" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-first td-menu-item td-normal-menu menu-item-1440"><a href="http://www.ofiweb.com.ar">Diseñado por OfiWeb</a></li>
+</ul></div>                </div>
+
+                <div class="td-pb-span5 td-sub-footer-copy">
+                    &copy; Copyright 2021 - Abrilacancha.com.ar                </div>
+            </div>
+        </div>
+    </div>
+    </div><!--close content div-->
+</div><!--close td-outer-wrap-->
+
+
+
+    <!--
+
+        Theme: Newspaper by tagDiv 2015
+        Version: 6.1 (rara)
+        Deploy mode: deploy
+        Speed booster: v4.1
+
+        uid: 6990f5fa1534f
+    -->
+
+    
+<!-- Custom css form theme panel -->
+<style type="text/css" media="screen">
+/* custom css theme panel */
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-main-content-wrap.td-main-page-wrap > div > div:nth-child(4) > div.td-pb-span8.borderweb.wpb_column.vc_column_container > div > div > h4 > span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/socc.png)
+}
+
+.td_block_id_1691877207 h4 span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/clock.png)
+}
+
+.td_block_id_4244309990 h4 span:before {
+content: url(http://xenen.com.ar/wp-content/uploads/rep.png)
+}
+
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-main-content-wrap.td-main-page-wrap > div > div:nth-child(7) > div.td-pb-span4.borderweb.wpb_column.vc_column_container > div > div > h4 > span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/ques.png)
+}
+
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-main-content-wrap.td-main-page-wrap > div > div:nth-child(4) > div.td-pb-span4.borderweb.wpb_column.vc_column_container > div > div > h4 > span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/rss.png)
+}
+
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-main-content-wrap.td-main-page-wrap > div > div.vc_row.wpb_row.td-pb-row.sacar_excerpt > div:nth-child(3) > div > div > h4 > span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/quo2.png)
+}
+
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-main-content-wrap.td-main-page-wrap > div > div.vc_row.wpb_row.td-pb-row.sacar_excerpt > div:nth-child(2) > div > div > h4 > span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/cup2.png)
+}
+
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-main-content-wrap.td-main-page-wrap > div > div:nth-child(7) > div.td-pb-span8.borderweb.wpb_column.vc_column_container > div > div > h4 > span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/text3.png)
+}
+
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-main-content-wrap.td-main-page-wrap > div > div:nth-child(2) > div.td-pb-span8.borderweb.wpb_column.vc_column_container > div > div > h4 > span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/mic4.png)
+}
+
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-main-content-wrap.td-main-page-wrap > div > div:nth-child(2) > div.td-pb-span4.borderweb.wpb_column.vc_column_container > div > div > h4 > span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/shield2.png)
+}
+
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-main-content-wrap.td-main-page-wrap > div > div.vc_row.wpb_row.td-pb-row.sacar_excerpt > div:nth-child(1) > div > div > h4 > span:before
+{
+content: url(http://xenen.com.ar/wp-content/uploads/eye2.png)
+}
+
+.td_module_2 {
+    border-bottom: 2px solid #eaeaea;
+}
+
+.td_block_inner {
+    background: #FFF;
+    border-bottom: 4px solid #2E7D32;
+    -webkit-box-shadow: 0 0 3px #CACACA;
+    -moz-box-shadow: 0 0 3px #cacaca;
+     box-shadow: 0 0 3px #CACACA;
+     padding: 5px;
+}
+
+.td_block_big_grid_2 .td_block_inner {
+  padding: 0;
+}
+
+.td_module_6 {
+    background: #f7f7f7;
+    overflow: hidden;
+    padding: 17px 20px;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    -webkit-transition: all .40s;
+       -moz-transition: all .40s;
+         -o-transition: all .40s;
+            transition: all .40s;
+}
+
+
+#td-outer-wrap > div.td-transition-content-and-menu.td-content-wrap > div.td-header-wrap.td-header-style-10 > div.td-header-menu-wrap-full > div {
+border-bottom: 5px solid #2E7D32;
+}
+
+.metaslider {
+margin: 0 auto;
+}
+
+.td_block_id_1656638278 .td-post-category {
+display: none;
+}
+
+.td_block_id_1656638278 .td-post-date {
+display: none;
+}
+
+.td-main-page-wrap .td-post-author-name {
+display: none;
+}
+
+.entry-thumb {
+width: 100%;
+height: 100%;
+}
+
+#menu-menu-1 a:hover {
+color: #2E7D32;
+}
+
+.td-mobile-close a {
+color: #2E7D32;
+}
+
+</style>
+
+<script type='text/javascript' src='https://abrilacancha.com.ar/wp-content/plugins/awesome-weather/js/awesome-weather-widget-frontend.js?ver=1.1' id='awesome_weather-js'></script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/abrilacancha.com.ar\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://abrilacancha.com.ar/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.2.2' id='contact-form-7-js'></script>
+<script type='text/javascript' src='https://abrilacancha.com.ar/wp-content/themes/Newspaper/js/tagdiv_theme.min.js?ver=6.1' id='td-site-min-js'></script>
+<script type='text/javascript' src='https://abrilacancha.com.ar/wp-includes/js/wp-embed.js?ver=5.5.17' id='wp-embed-js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=1635764636694201&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- JS generated by theme -->
+
+<script>
+    
+
+
+            
+
+                jQuery(window).ready(function() {
+
+                    // if the theme has td_backstr support, it means this already uses it
+                    if (typeof window.td_backstr !== 'undefined') {
+
+                        (function(){
+
+                            // the site background td-backstretch jquery object is dynamically added in DOM, and after any translation effects are applied over td-backstretch
+                            var wrapper_image_jquery_obj = jQuery('<div class=\'backstretch\'></div>');
+                            var image_jquery_obj = jQuery('<img class=\'td-backstretch not-parallax\' src=\'http://abrilacancha.com.ar/wp-content/uploads/cancha-1-300x169.jpg\'>');
+
+                            wrapper_image_jquery_obj.append(image_jquery_obj);
+
+                            jQuery('body').prepend(wrapper_image_jquery_obj);
+
+                            var td_backstr_item = new td_backstr.item();
+
+                            td_backstr_item.wrapper_image_jquery_obj = wrapper_image_jquery_obj;
+                            td_backstr_item.image_jquery_obj = image_jquery_obj;
+
+                            td_backstr.add_item(td_backstr_item);
+
+                        })();
+
+                    } else {
+
+                        // - this is the old backstretch jquery plugin call
+                        // - td_backstretch.js is in wp_booster, so it is still used by the themes that don't use new td_backstr.js
+                        jQuery.backstretch('http://abrilacancha.com.ar/wp-content/uploads/cancha-1-300x169.jpg', {fade:1200, centeredY:false});
+                    }
+                });
+
+            
+            
+
+	
+
+		(function(){
+			var html_jquery_obj = jQuery('html');
+
+			if (html_jquery_obj.length && (html_jquery_obj.is('.ie8') || html_jquery_obj.is('.ie9'))) {
+
+				var path = 'https://abrilacancha.com.ar/wp-content/themes/Newspaper/style.css';
+
+				jQuery.get(path, function(data) {
+
+					var str_split_separator = '#td_css_split_separator';
+					var arr_splits = data.split(str_split_separator);
+					var arr_length = arr_splits.length;
+
+					if (arr_length > 1) {
+
+						var dir_path = 'https://abrilacancha.com.ar/wp-content/themes/Newspaper';
+						var splited_css = '';
+
+						for (var i = 0; i < arr_length; i++) {
+							if (i > 0) {
+								arr_splits[i] = str_split_separator + ' ' + arr_splits[i];
+							}
+							//jQuery('head').append('<style>' + arr_splits[i] + '</style>');
+
+							var formated_str = arr_splits[i].replace(/\surl\(\'(?!data\:)/gi, function regex_function(str) {
+								return ' url(\'' + dir_path + '/' + str.replace(/url\(\'/gi, '').replace(/^\s+|\s+$/gm,'');
+							});
+
+							splited_css += "<style>" + formated_str + "</style>";
+						}
+
+						var td_theme_css = jQuery('link#td-theme-css');
+
+						if (td_theme_css.length) {
+							td_theme_css.after(splited_css);
+						}
+					}
+				});
+			}
+		})();
+
+	
+	
+</script>
+
+
+<!-- Header style compiled by theme -->
+
+<style>
+    
+
+.td-header-wrap .black-menu .sf-menu > .current-menu-item > a,
+    .td-header-wrap .black-menu .sf-menu > .current-menu-ancestor > a,
+    .td-header-wrap .black-menu .sf-menu > .current-category-ancestor > a,
+    .td-header-wrap .black-menu .sf-menu > li > a:hover,
+    .td-header-wrap .black-menu .sf-menu > .sfHover > a,
+    .td-header-style-12 .td-header-menu-wrap-full,
+    .sf-menu > .current-menu-item > a:after,
+    .sf-menu > .current-menu-ancestor > a:after,
+    .sf-menu > .current-category-ancestor > a:after,
+    .sf-menu > li:hover > a:after,
+    .sf-menu > .sfHover > a:after,
+    .sf-menu ul .td-menu-item > a:hover,
+    .sf-menu ul .sfHover > a,
+    .sf-menu ul .current-menu-ancestor > a,
+    .sf-menu ul .current-category-ancestor > a,
+    .sf-menu ul .current-menu-item > a,
+    .td-header-style-12 .td-affix,
+    .header-search-wrap .td-drop-down-search:after,
+    .header-search-wrap .td-drop-down-search .btn:hover,
+    input[type=submit]:hover,
+    .td-read-more a,
+    .td-post-category:hover,
+    .td-grid-style-1.td-hover-1 .td-big-grid-post:hover .td-post-category,
+    .td-grid-style-5.td-hover-1 .td-big-grid-post:hover .td-post-category,
+    .td_top_authors .td-active .td-author-post-count,
+    .td_top_authors .td-active .td-author-comments-count,
+    .td_top_authors .td_mod_wrap:hover .td-author-post-count,
+    .td_top_authors .td_mod_wrap:hover .td-author-comments-count,
+    .td-404-sub-sub-title a:hover,
+    .td-search-form-widget .wpb_button:hover,
+    .td-rating-bar-wrap div,
+    .td_category_template_3 .td-current-sub-category,
+    .td-login-wrap .btn,
+    .td_display_err,
+    .td_display_msg_ok,
+    .dropcap,
+    .td_wrapper_video_playlist .td_video_controls_playlist_wrapper,
+    .wpb_default,
+    .wpb_default:hover,
+    .td-left-smart-list:hover,
+    .td-right-smart-list:hover,
+    .woocommerce-checkout .woocommerce input.button:hover,
+    .woocommerce-page .woocommerce a.button:hover,
+    .woocommerce-account div.woocommerce .button:hover,
+    #bbpress-forums button:hover,
+    .bbp_widget_login .button:hover,
+    .td-footer-wrapper .td-post-category,
+    .td-footer-wrapper .widget_product_search input[type="submit"]:hover,
+    .woocommerce .product a.button:hover,
+    .woocommerce .product #respond input#submit:hover,
+    .woocommerce .checkout input#place_order:hover,
+    .woocommerce .woocommerce.widget .button:hover,
+    .single-product .product .summary .cart .button:hover,
+    .woocommerce-cart .woocommerce table.cart .button:hover,
+    .woocommerce-cart .woocommerce .shipping-calculator-form .button:hover,
+    .td-next-prev-wrap a:hover,
+    .td-load-more-wrap a:hover,
+    .td-post-small-box a:hover,
+    .page-nav .current,
+    .page-nav:first-child > div,
+    .td_category_template_8 .td-category-header .td-category a.td-current-sub-category,
+    .td_category_template_4 .td-category-siblings .td-category a:hover,
+    #bbpress-forums .bbp-pagination .current,
+    #bbpress-forums #bbp-single-user-details #bbp-user-navigation li.current a,
+    .td-theme-slider:hover .slide-meta-cat a,
+    a.vc_btn-black:hover,
+    .td-trending-now-wrapper:hover .td-trending-now-title,
+    .td-scroll-up-visible,
+    .td-mobile-close a {
+        background-color: #4a8cc9;
+    }
+
+    .woocommerce .woocommerce-message .button:hover,
+    .woocommerce .woocommerce-error .button:hover,
+    .woocommerce .woocommerce-info .button:hover {
+        background-color: #4a8cc9 !important;
+    }
+
+    .woocommerce .product .onsale,
+    .woocommerce.widget .ui-slider .ui-slider-handle {
+        background: none #4a8cc9;
+    }
+
+    .woocommerce.widget.widget_layered_nav_filters ul li a {
+        background: none repeat scroll 0 0 #4a8cc9 !important;
+    }
+
+    a,
+    cite a:hover,
+    .td_mega_menu_sub_cats .cur-sub-cat,
+    .td-mega-span h3 a:hover,
+    .td_mod_mega_menu:hover .entry-title a,
+    .header-search-wrap .result-msg a:hover,
+    .top-header-menu li a:hover,
+    .top-header-menu .current-menu-item > a,
+    .top-header-menu .current-menu-ancestor > a,
+    .top-header-menu .current-category-ancestor > a,
+    .td-social-icon-wrap > a:hover,
+    .td-header-sp-top-widget .td-social-icon-wrap a:hover,
+    .td-page-content blockquote p,
+    .td-post-content blockquote p,
+    .mce-content-body blockquote p,
+    .comment-content blockquote p,
+    .wpb_text_column blockquote p,
+    .td_block_text_with_title blockquote p,
+    .td_module_wrap:hover .entry-title a,
+    .td-subcat-filter .td-subcat-list a:hover,
+    .td-subcat-filter .td-subcat-dropdown a:hover,
+    .td_quote_on_blocks,
+    .dropcap2,
+    .dropcap3,
+    .td_top_authors .td-active .td-authors-name a,
+    .td_top_authors .td_mod_wrap:hover .td-authors-name a,
+    .td-post-next-prev-content a:hover,
+    .author-box-wrap .td-author-social a:hover,
+    .td-author-name a:hover,
+    .td-author-url a:hover,
+    .td_mod_related_posts:hover h3 > a,
+    .td-post-template-11 .td-related-title .td-related-left:hover,
+    .td-post-template-11 .td-related-title .td-related-right:hover,
+    .td-post-template-11 .td-related-title .td-cur-simple-item,
+    .td-post-template-11 .td_block_related_posts .td-next-prev-wrap a:hover,
+    .comment-reply-link:hover,
+    .logged-in-as a:hover,
+    #cancel-comment-reply-link:hover,
+    .td-search-query,
+    .td-category-header .td-pulldown-category-filter-link:hover,
+    .td-category-siblings .td-subcat-dropdown a:hover,
+    .td-category-siblings .td-subcat-dropdown a.td-current-sub-category,
+    .td-login-wrap .td-login-info-text a:hover,
+    .widget a:hover,
+    .widget_calendar tfoot a:hover,
+    .woocommerce a.added_to_cart:hover,
+    #bbpress-forums li.bbp-header .bbp-reply-content span a:hover,
+    #bbpress-forums .bbp-forum-freshness a:hover,
+    #bbpress-forums .bbp-topic-freshness a:hover,
+    #bbpress-forums .bbp-forums-list li a:hover,
+    #bbpress-forums .bbp-forum-title:hover,
+    #bbpress-forums .bbp-topic-permalink:hover,
+    #bbpress-forums .bbp-topic-started-by a:hover,
+    #bbpress-forums .bbp-topic-started-in a:hover,
+    #bbpress-forums .bbp-body .super-sticky li.bbp-topic-title .bbp-topic-permalink,
+    #bbpress-forums .bbp-body .sticky li.bbp-topic-title .bbp-topic-permalink,
+    .widget_display_replies .bbp-author-name,
+    .widget_display_topics .bbp-author-name,
+    .footer-email-wrap a,
+    .td-subfooter-menu li a:hover,
+    .footer-social-wrap a:hover,
+    a.vc_btn-black:hover,
+    .td-mobile-content li a:hover{
+        color: #4a8cc9;
+    }
+
+    .td_login_tab_focus,
+    a.vc_btn-black.vc_btn_square_outlined:hover,
+    a.vc_btn-black.vc_btn_outlined:hover {
+        color: #4a8cc9 !important;
+    }
+
+    .td-next-prev-wrap a:hover,
+    .td-load-more-wrap a:hover,
+    .td-post-small-box a:hover,
+    .page-nav .current,
+    .page-nav:first-child > div,
+    .td_category_template_8 .td-category-header .td-category a.td-current-sub-category,
+    .td_category_template_4 .td-category-siblings .td-category a:hover,
+    #bbpress-forums .bbp-pagination .current,
+    .td-login-panel-title,
+    .post .td_quote_box,
+    .page .td_quote_box,
+    a.vc_btn-black:hover {
+        border-color: #4a8cc9;
+    }
+
+    .td_wrapper_video_playlist .td_video_currently_playing:after {
+        border-color: #4a8cc9 !important;
+    }
+
+    .header-search-wrap .td-drop-down-search:before {
+        border-color: transparent transparent #4a8cc9 transparent;
+    }
+
+    .block-title > span,
+    .block-title > a,
+    .block-title > label,
+    .widgettitle,
+    .widgettitle:after,
+    .td-trending-now-title,
+    .td-trending-now-wrapper:hover .td-trending-now-title,
+    .wpb_tabs li.ui-tabs-active a,
+    .wpb_tabs li:hover a,
+    .td-related-title .td-cur-simple-item,
+    .woocommerce .product .products h2,
+    .td-subcat-filter .td-subcat-dropdown:hover .td-subcat-more {
+    	background-color: #4a8cc9;
+    }
+    .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    	background-color: #4a8cc9 !important;
+    }
+    .block-title,
+    .td-related-title,
+    .wpb_tabs .wpb_tabs_nav,
+    .woocommerce div.product .woocommerce-tabs ul.tabs:before {
+        border-color: #4a8cc9;
+    }
+    .td_block_wrap .td-subcat-item .td-cur-simple-item {
+	  color: #4a8cc9;
+	}
+
+
+    
+    .td-grid-style-4 .entry-title
+    {
+        background-color: rgba(74, 140, 201, 0.7);
+    }
+
+    
+    .td-header-wrap .td-header-top-menu-full,
+    .td-header-wrap .top-header-menu .sub-menu {
+        background-color: #4a8cc9;
+    }
+
+    .td-header-wrap .td-header-top-menu-full .td-header-top-menu,
+    .td-header-wrap .td-header-top-menu-full {
+        border-bottom: none;
+    }
+
+
+    
+    .td-header-top-menu,
+    .td-header-top-menu a,
+    .td-header-wrap .td-header-top-menu-full .td-header-top-menu,
+    .td-header-wrap .td-header-top-menu-full a,
+    .td-header-style-8 .td-header-top-menu,
+    .td-header-style-8 .td-header-top-menu a {
+        color: #ffffff;
+    }
+
+    
+    .top-header-menu .current-menu-item > a,
+    .top-header-menu .current-menu-ancestor > a,
+    .top-header-menu .current-category-ancestor > a,
+    .top-header-menu li a:hover {
+        color: #000000;
+    }
+
+    
+    .td-header-wrap .td-header-sp-top-widget .td-icon-font {
+        color: #ffffff;
+    }
+
+    
+    .td-header-wrap .td-header-sp-top-widget i.td-icon-font:hover {
+        color: #000000;
+    }
+
+
+    
+    .td-header-wrap .td-header-menu-wrap-full,
+    .sf-menu > .current-menu-ancestor > a,
+    .sf-menu > .current-category-ancestor > a,
+    .td-header-menu-wrap.td-affix,
+    .td-header-style-3 .td-header-main-menu,
+    .td-header-style-3 .td-affix .td-header-main-menu,
+    .td-header-style-4 .td-header-main-menu,
+    .td-header-style-4 .td-affix .td-header-main-menu,
+    .td-header-style-8 .td-header-menu-wrap.td-affix {
+        background-color: #000000;
+    }
+
+
+    .td-boxed-layout .td-header-style-3 .td-header-menu-wrap,
+    .td-boxed-layout .td-header-style-4 .td-header-menu-wrap {
+    	background-color: #000000 !important;
+    }
+
+
+    @media (min-width: 1019px) {
+        .td-header-style-1 .td-header-sp-recs,
+        .td-header-style-1 .td-header-sp-logo {
+            margin-bottom: 28px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1018px) {
+        .td-header-style-1 .td-header-sp-recs,
+        .td-header-style-1 .td-header-sp-logo {
+            margin-bottom: 14px;
+        }
+    }
+
+    .td-header-style-7 .td-header-top-menu {
+        border-bottom: none;
+    }
+
+
+    
+    .sf-menu ul .td-menu-item > a:hover,
+    .sf-menu ul .sfHover > a,
+    .sf-menu ul .current-menu-ancestor > a,
+    .sf-menu ul .current-category-ancestor > a,
+    .sf-menu ul .current-menu-item > a,
+    .sf-menu > .current-menu-item > a:after,
+    .sf-menu > .current-menu-ancestor > a:after,
+    .sf-menu > .current-category-ancestor > a:after,
+    .sf-menu > li:hover > a:after,
+    .sf-menu > .sfHover > a:after,
+    .td_block_mega_menu .td-next-prev-wrap a:hover,
+    .td-mega-span .td-post-category:hover,
+    .td-header-wrap .black-menu .sf-menu > li > a:hover,
+    .td-header-wrap .black-menu .sf-menu > .current-menu-ancestor > a,
+    .td-header-wrap .black-menu .sf-menu > .sfHover > a,
+    .header-search-wrap .td-drop-down-search:after,
+    .header-search-wrap .td-drop-down-search .btn:hover,
+    .td-header-wrap .black-menu .sf-menu > .current-menu-item > a,
+    .td-header-wrap .black-menu .sf-menu > .current-menu-ancestor > a,
+    .td-header-wrap .black-menu .sf-menu > .current-category-ancestor > a,
+    .td-mobile-close a {
+        background-color: rgba(129,215,66,0.01);
+    }
+
+
+    .td_block_mega_menu .td-next-prev-wrap a:hover {
+        border-color: rgba(129,215,66,0.01);
+    }
+
+    .header-search-wrap .td-drop-down-search:before {
+        border-color: transparent transparent rgba(129,215,66,0.01) transparent;
+    }
+
+    .td_mega_menu_sub_cats .cur-sub-cat,
+    .td_mod_mega_menu:hover .entry-title a,
+    .td-mobile-content li a:hover {
+        color: rgba(129,215,66,0.01);
+    }
+
+
+    
+    .td-header-wrap .td-header-menu-wrap .sf-menu > li > a,
+    .td-header-wrap .header-search-wrap .td-icon-search {
+        color: #ffffff;
+    }
+
+    
+    .td-banner-wrap-full,
+    .td-header-style-11 .td-logo-wrap-full {
+        background-color: #000000;
+    }
+
+    .td-header-style-11 .td-logo-wrap-full {
+        border-bottom: 0;
+    }
+
+    @media (min-width: 1019px) {
+        .td-header-style-2 .td-header-sp-recs,
+        .td-header-style-5 .td-a-rec-id-header > div,
+        .td-header-style-5 .td-g-rec-id-header > .adsbygoogle,
+        .td-header-style-6 .td-a-rec-id-header > div,
+        .td-header-style-6 .td-g-rec-id-header > .adsbygoogle,
+        .td-header-style-7 .td-a-rec-id-header > div,
+        .td-header-style-7 .td-g-rec-id-header > .adsbygoogle,
+        .td-header-style-8 .td-a-rec-id-header > div,
+        .td-header-style-8 .td-g-rec-id-header > .adsbygoogle,
+        .td-header-style-12 .td-a-rec-id-header > div,
+        .td-header-style-12 .td-g-rec-id-header > .adsbygoogle {
+            margin-bottom: 24px !important;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1018px) {
+        .td-header-style-2 .td-header-sp-recs,
+        .td-header-style-5 .td-a-rec-id-header > div,
+        .td-header-style-5 .td-g-rec-id-header > .adsbygoogle,
+        .td-header-style-6 .td-a-rec-id-header > div,
+        .td-header-style-6 .td-g-rec-id-header > .adsbygoogle,
+        .td-header-style-7 .td-a-rec-id-header > div,
+        .td-header-style-7 .td-g-rec-id-header > .adsbygoogle,
+        .td-header-style-8 .td-a-rec-id-header > div,
+        .td-header-style-8 .td-g-rec-id-header > .adsbygoogle,
+        .td-header-style-12 .td-a-rec-id-header > div,
+        .td-header-style-12 .td-g-rec-id-header > .adsbygoogle {
+            margin-bottom: 14px !important;
+        }
+    }
+
+
+
+
+    
+    .td-footer-wrapper {
+        background-color: #383838;
+    }
+
+    
+    .sf-menu > .td-menu-item > a {
+        line-height:56px;
+	
+    }
+</style>
+
+
+</body>
+</html>

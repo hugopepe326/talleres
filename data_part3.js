@@ -1,0 +1,383 @@
+// PARTE 3: Datos históricos 1980-1997
+const dataP3 = {
+    1980: {
+        hito: "El Talleres de Primera. Ingreso a los Metropolitanos y protagonismo nacional.",
+        torneo: "Metropolitano 1980",
+        plantel: [
+            { num: "1", name: "Oscar Quiroga", pos: "Arquero", info: "El guardián del arco." },
+            { num: "2", name: "José Van Tuyne", pos: "Defensor", info: "Zaguero de Selección." },
+            { num: "3", name: "Luis Galván", pos: "Defensor", info: "Capitán y referente del fondo." },
+            { num: "4", name: "Victorio Ocaño", pos: "Defensor", info: "Histórico lateral derecho." },
+            { num: "6", name: "Rafael Pavón", pos: "Defensor", info: "Marcador central de jerarquía." },
+            { num: "5", name: "Miguel Oviedo", pos: "Mediocampista", info: "Eje mundialista del equipo." },
+            { num: "8", name: "Luis Ludueña", pos: "Mediocampista", info: "El Hacha. Dinámica y gol." },
+            { num: "10", name: "José Omar Reinaldi", pos: "Delantero", info: "La Pepona. Gran nivel goleador." },
+            { num: "9", name: "Humberto Bravo", pos: "Delantero", info: "Goleador máximo de la temporada." },
+            { num: "7", name: "Ángel Bocanelli", pos: "Delantero", info: "Extremo desequilibrante." },
+            { num: "11", name: "Néstor Lucco", pos: "Delantero", info: "Alternativa de ataque." },
+            { num: "12", name: "Eduardo Astudillo", pos: "Defensor", info: "Defensor polifuncional." },
+            { num: "13", name: "Víctor Binello", pos: "Defensor", info: "Zaguero central sólido." },
+            { num: "14", name: "Ángel Guillermo Hoyos", pos: "Mediocampista", info: "Joven talento creativo." },
+            { num: "15", name: "Rubén Guibaudo", pos: "Arquero", info: "Arquero con experiencia." }
+        ]
+    },
+    1981: {
+        hito: "Talleres protagonista en Metropolitano y Nacional.",
+        torneo: "Metropolitano / Nacional 1981",
+        plantel: [
+            { num: "1", name: "Héctor Baley", pos: "Arquero", info: "Chocolate. Campeón del Mundo." },
+            { num: "12", name: "Oscar Quiroga", pos: "Arquero", info: "Alternativa." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Campeón del Mundo." },
+            { num: "4", name: "Victorio Ocaño", pos: "Defensor", info: "Lateral derecho." },
+            { num: "3", name: "José Luis Cuciuffo", pos: "Defensor", info: "Defensor central joven." },
+            { num: "6", name: "Rafael Pavón", pos: "Defensor", info: "Marcador central." },
+            { num: "5", name: "Miguel Oviedo", pos: "Mediocampista", info: "Volante defensivo." },
+            { num: "8", name: "Luis Ludueña", pos: "Mediocampista", info: "Volante derecho." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "El Rana. Enganche." },
+            { num: "7", name: "Ángel Bocanelli", pos: "Delantero", info: "Extremo." },
+            { num: "16", name: "Roberto Mosquera", pos: "Delantero", info: "Extremo derecho." },
+            { num: "11", name: "Carlos Guerini", pos: "Delantero", info: "Chupete." },
+            { num: "9", name: "José Omar Reinaldi", pos: "Delantero", info: "La Pepona." },
+            { num: "14", name: "Humberto Bravo", pos: "Delantero", info: "Goleador máximo." },
+            { num: "15", name: "Júlio César", pos: "Delantero", info: "Brasilero. 7 goles." },
+            { num: "17", name: "Guillermo Aramayo", pos: "Mediocampista", info: "Volante central." },
+            { num: "18", name: "Ángel Guillermo Hoyos", pos: "Mediocampista", info: "Talento ofensivo." }
+        ]
+    },
+    1982: {
+        hito: "El Talleres de Ángel Labruna. Semifinalista del Nacional con un fútbol de alto vuelo y el goleador del año: el Puma Morete.",
+        torneo: "Nacional / Metropolitano 1982",
+        plantel: [
+            { num: "1", name: "Héctor Baley", pos: "Arquero", info: "Chocolate; el gran arquero mundialista bajo los tres palos." },
+            { num: "4", name: "Victorio Ocaño", pos: "Defensor", info: "Lateral derecho histórico y capitán de la defensa." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Jerarquía absoluta; el central campeón del mundo." },
+            { num: "6", name: "Miguel Oviedo", pos: "Defensor/Mediocampista", info: "La 'Cata'; polifuncional de Selección que cumplió en cualquier puesto." },
+            { num: "3", name: "Daniel Riquelme", pos: "Defensor", info: "Lateral izquierdo que se afianzó en la titularidad." },
+            { num: "8", name: "Juan José López", pos: "Mediocampista", info: "JJ; el ex River aportó toda su experiencia y 8 goles en el año." },
+            { num: "5", name: "Jorge Coudannes", pos: "Mediocampista", info: "Volante central que aportó equilibrio defensivo." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "El 'Rana'; el enganche mundialista y director de orquesta." },
+            { num: "7", name: "Pedro González", pos: "Delantero", info: "Atacante que marcó goles claves, incluyendo uno a Boca." },
+            { num: "9", name: "Carlos Morete", pos: "Delantero", info: "El 'Puma'; una fiera del gol que anotó 20 tantos en la temporada." },
+            { num: "11", name: "Carlos Guerini", pos: "Delantero", info: "El 'Chupete'; calidad europea y jerarquía internacional." },
+            { num: "12", name: "César Mendoza", pos: "Arquero", info: "Arquero que alternó con gran seguridad en los nacionales." },
+            { num: "14", name: "José Omar Reinaldi", pos: "Delantero", info: "La 'Pepona'; ídolo y referente que seguía vigente." },
+            { num: "15", name: "Héctor Ártico", pos: "Defensor", info: "El 'Gringo'; firmeza y experiencia en la zaga central." },
+            { num: "16", name: "Juan Carlos Heredia", pos: "Delantero", info: "La 'Milonguita'; el ex Barcelona tuvo un breve paso por el club." }
+        ]
+    },
+    1983: {
+        hito: "Grandes técnicos en el banco. Octavos del Nacional.",
+        torneo: "Metropolitano / Nacional 1983",
+        plantel: [
+            { num: "1", name: "Héctor Baley", pos: "Arquero", info: "Chocolate. Dueño del arco." },
+            { num: "2", name: "Hugo Ruiz", pos: "Defensor", info: "Lateral derecho." },
+            { num: "3", name: "Daniel Riquelme", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "4", name: "Omar Beccerica", pos: "Defensor", info: "Zaguero central." },
+            { num: "6", name: "Miguel Ángel Oviedo", pos: "Defensor", info: "Capitán y referente." },
+            { num: "5", name: "Daniel Bustos", pos: "Mediocampista", info: "Volante central de marca." },
+            { num: "8", name: "Ángel Guillermo Hoyos", pos: "Mediocampista", info: "Volante ofensivo de talento." },
+            { num: "10", name: "Carlos Guerini", pos: "Delantero", info: "Chupete. Calidad europea." },
+            { num: "11", name: "Daniel Valencia", pos: "Mediocampista", info: "El Rana. El gran 10." },
+            { num: "7", name: "Oscar Tedini", pos: "Delantero", info: "Puntero derecho rápido." },
+            { num: "9", name: "Mario Bevilacqua", pos: "Delantero", info: "El Pastor del gol." },
+            { num: "12", name: "César Mendoza", pos: "Arquero", info: "Arquero suplente." },
+            { num: "14", name: "Eduardo Torletti", pos: "Delantero", info: "Ataque punzante." },
+            { num: "15", name: "Gustavo Koleff", pos: "Defensor", info: "Marcador sólido." },
+            { num: "16", name: "Miguel Ángel Ludueña", pos: "Mediocampista", info: "Volante de contención." }
+        ]
+    },
+    1984: {
+        hito: "Semifinalista del Nacional. Gran fútbol de ataque.",
+        torneo: "Metropolitano / Nacional 1984",
+        plantel: [
+            { num: "1", name: "Héctor Baley", pos: "Arquero", info: "Titular indiscutido." },
+            { num: "2", name: "Victorio Orlando Ocaño", pos: "Defensor", info: "Lateral derecho." },
+            { num: "6", name: "Miguel Oviedo", pos: "Defensor", info: "Líder de la zaga central." },
+            { num: "3", name: "Daniel Riquelme", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "4", name: "Eduardo Astudillo", pos: "Defensor", info: "Zaguero central." },
+            { num: "5", name: "Daniel Bustos", pos: "Mediocampista", info: "Volante de marca férrea." },
+            { num: "8", name: "Ángel Hoyos", pos: "Mediocampista", info: "Volante con gran llegada." },
+            { num: "10", name: "Carlos Guerini", pos: "Delantero", info: "Extremo exquisito." },
+            { num: "11", name: "Daniel Valencia", pos: "Mediocampista", info: "Enganche creativo." },
+            { num: "9", name: "Miguel Ángel Juárez", pos: "Delantero", info: "El 'Gordo'. Goleador absoluto." },
+            { num: "7", name: "Mario Bevilacqua", pos: "Delantero", info: "Goleador en racha." },
+            { num: "12", name: "Ángel Comizzo", pos: "Arquero", info: "Debuta el juvenil." },
+            { num: "14", name: "Oscar Roberto Tedini", pos: "Delantero", info: "Atacante por fuera." },
+            { num: "15", name: "Gustavo Koleff", pos: "Defensor", info: "Marcador de punta." },
+            { num: "16", name: "José Luis Pochettino", pos: "Delantero", info: "Puntero." }
+        ]
+    },
+    1985: {
+        hito: "Talleres se mantiene en Primera División.",
+        torneo: "Nacional 1985",
+        plantel: [
+            { num: "1", name: "Héctor Baley", pos: "Arquero", info: "Chocolate. Último año." },
+            { num: "12", name: "Ángel Comizzo", pos: "Arquero", info: "Joven promesa." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Veterano referente. Campeón del Mundo." },
+            { num: "4", name: "Victorio Ocaño", pos: "Defensor", info: "Lateral histórico." },
+            { num: "6", name: "José Luis Tesare", pos: "Defensor", info: "Zaguero central." },
+            { num: "3", name: "Héctor Arzubialde", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "5", name: "Miguel Oviedo", pos: "Mediocampista", info: "Eje y capitán." },
+            { num: "8", name: "Miguel Ángel Ludueña", pos: "Mediocampista", info: "Volante central." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "Enganche (última etapa)." },
+            { num: "11", name: "Carlos Guerini", pos: "Delantero", info: "Extremo goleador." },
+            { num: "14", name: "Juan Bogado", pos: "Mediocampista", info: "Mediocampista de marca." },
+            { num: "15", name: "Rubén Galletti", pos: "Delantero", info: "Refuerzo ofensivo." },
+            { num: "16", name: "Aldo Noblea", pos: "Mediocampista", info: "Volante." },
+            { num: "17", name: "Daniel Riquelme", pos: "Defensor", info: "Lateral." },
+            { num: "18", name: "Héctor Arzubialde", pos: "Defensor", info: "Defensor joven." }
+        ]
+    },
+    1986: {
+        hito: "Llegada de Comizzo. Transición al primer Nacional B.",
+        torneo: "Primera División 85/86",
+        plantel: [
+            { num: "1", name: "Ángel Comizzo", pos: "Arquero", info: "El Flaco. Titular indiscutido." },
+            { num: "12", name: "Héctor Baley", pos: "Arquero", info: "Experiencia en el arco." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Zaguero central de Selección." },
+            { num: "6", name: "José Luis Tesare", pos: "Defensor", info: "Marcador central." },
+            { num: "3", name: "Héctor Arzubialde", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "4", name: "Miguel Ángel Oviedo", pos: "Defensor", info: "Referente del club." },
+            { num: "5", name: "Juan Bogado", pos: "Mediocampista", info: "Volante central clave." },
+            { num: "8", name: "Aldo Noblea", pos: "Mediocampista", info: "Volante mixto." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "El Rana. Magia pura." },
+            { num: "7", name: "Oscar Tedini", pos: "Delantero", info: "Atacante por fuera." },
+            { num: "9", name: "Pedro González", pos: "Delantero", info: "Finalizador." },
+            { num: "11", name: "Víctor Hugo Heredia", pos: "Mediocampista", info: "Eje del mediocampo." },
+            { num: "14", name: "Daniel Osvaldo Riquelme", pos: "Defensor", info: "Zaguero." },
+            { num: "15", name: "Miguel Ángel Ludueña", pos: "Mediocampista", info: "Volante central." },
+            { num: "16", name: "José Luis Pochettino", pos: "Delantero", info: "Puntero." }
+        ]
+    },
+    1987: {
+        hito: "Homenaje a la historia: Campaña regular en Primera. Se asienta Medina Bello.",
+        torneo: "Primera División 86/87",
+        plantel: [
+            { num: "1", name: "Néstor Luis Iglesias", pos: "Arquero", info: "El 'Nene'; arquero titular que brindó seguridad." },
+            { num: "12", name: "Ángel Comizzo", pos: "Arquero", info: "El 'Flaco'; arquero de enorme futuro y gran nivel." },
+            { num: "4", name: "Sergio Zanetti", pos: "Defensor", info: "Lateral izquierdo de gran despliegue y marca." },
+            { num: "2", name: "Ricardo Solórzano", pos: "Defensor", info: "Zaguero central de gran temperamento." },
+            { num: "6", name: "Mario Alfonso Ballarino", pos: "Defensor", info: "Fuerza y presencia en la zaga central." },
+            { num: "8", name: "Víctor Hugo Heredia", pos: "Mediocampista", info: "Volante mixto de mucho ida y vuelta." },
+            { num: "5", name: "Juan Bogado", pos: "Mediocampista", info: "Manejó los hilos del centro de la cancha." },
+            { num: "10", name: "Rubén Stefanutti", pos: "Mediocampista", info: "Volante ofensivo que aportó gran cantidad de goles (18)." },
+            { num: "7", name: "Ramón Ismael Medina Bello", pos: "Delantero", info: "El 'Mencho'; potencia pura que comenzó a deslumbrar." },
+            { num: "9", name: "Jorge Franzoni", pos: "Delantero", info: "El 'Pato'; un goleador de raza en el área rival." },
+            { num: "11", name: "Carlos Paulino Cardozo", pos: "Delantero", info: "Atacante paraguayo muy rendidor con el gol." },
+            { num: "14", name: "Gabriel Marrone", pos: "Mediocampista", info: "Volante de recambio con buen manejo." },
+            { num: "15", name: "Carlos Isidro Olaran", pos: "Defensor", info: "Marcador lateral derecho de mucha entrega." },
+            { num: "16", name: "Héctor Guillermo Cejas", pos: "Defensor", info: "Aportó solidez desde el banco de relevos." },
+            { num: "17", name: "Javier González", pos: "Mediocampista", info: "Volante central de contención táctica." }
+        ]
+    },
+    1988: {
+        hito: "Debut oficial de la 'Wanora' de los 80: Mario Bevilacqua. Despedida del gran ídolo Daniel Valencia.",
+        torneo: "Primera División 87/88",
+        plantel: [
+            { num: "1", name: "Ángel Comizzo", pos: "Arquero", info: "Se despide como figura antes de emigrar a River Plate." },
+            { num: "12", name: "Sergio Genaro", pos: "Arquero", info: "Arquero que alternó con buenas actuaciones." },
+            { num: "4", name: "Carlos Julio Bustos", pos: "Defensor", info: "Zaguero central con mucha personalidad y mando." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Última temporada del gran capitán de Selección en el club." },
+            { num: "6", name: "Carlos Isidro Olaran", pos: "Defensor", info: "Marcador lateral derecho incansable." },
+            { num: "3", name: "Alejandro Alfredo Montenegro", pos: "Defensor", info: "Lateral izquierdo de gran nivel ofensivo." },
+            { num: "5", name: "Renato Corsi", pos: "Mediocampista", info: "Volante central que aportó dinamismo al medio." },
+            { num: "8", name: "Víctor Hugo Heredia", pos: "Mediocampista", info: "Clave en la generación de juego del equipo." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "El 'Rana'; se retira el 10 más elegante de la historia." },
+            { num: "7", name: "Ramón Ismael Medina Bello", pos: "Delantero", info: "El 'Mencho'; potencia y goles en el arco rival." },
+            { num: "9", name: "Mario Bevilacqua", pos: "Delantero", info: "El 'Pastor'; letal en el área, máximo goleador en AFA." },
+            { num: "11", name: "Carlos Paulino Cardozo", pos: "Delantero", info: "Atacante paraguayo muy oportuno en la red." },
+            { num: "14", name: "Emilio Nicolás Commisso", pos: "Mediocampista", info: "Aportó su enorme experiencia en la mitad de la cancha." },
+            { num: "15", name: "Silvio Gabriel Rudman", pos: "Mediocampista", info: "Volante ofensivo de buen pie y gol." },
+            { num: "16", name: "Héctor Arzubialde", pos: "Defensor", info: "Joven zaguero central que comenzó a consolidarse." }
+        ]
+    },
+    1989: {
+        hito: "Llegada de grandes figuras: El 'Toti' Iglesias y el paraguayo Adolfino Cañete. Talleres mantiene su mística en Primera.",
+        torneo: "Primera División 88/89",
+        plantel: [
+            { num: "1", name: "Rubén Martín Ruiz Díaz", pos: "Arquero", info: "El 'Gato'; arquero paraguayo de gran agilidad y reflejos." },
+            { num: "2", name: "Carlos Julio Bustos", pos: "Defensor", info: "Zaguero central férreo y capitán del equipo." },
+            { num: "6", name: "César Zabala", pos: "Defensor", info: "Zaguero central de jerarquía internacional." },
+            { num: "4", name: "Antonio Humberto Vattimos", pos: "Defensor", info: "Defensor central de gran fortaleza física." },
+            { num: "3", name: "Alejandro Alfredo Montenegro", pos: "Defensor", info: "Lateral izquierdo de gran nivel ofensivo." },
+            { num: "5", name: "Amadeo Gasparini", pos: "Mediocampista", info: "El 'Toro'; ídolo y estandarte del mediocampo albiazul." },
+            { num: "8", name: "Héctor Alberto Chazarreta", pos: "Mediocampista", info: "Volante ofensivo con gran visión y pegada." },
+            { num: "10", name: "Adolfino Cañete", pos: "Mediocampista", info: "El '10' paraguayo; talento puro y conducción magistral." },
+            { num: "7", name: "Antonio Apud", pos: "Mediocampista", info: "El 'Turco'; un tractor en la mitad de la cancha." },
+            { num: "9", name: "José Raúl Iglesias", pos: "Delantero", info: "El 'Toti'; goleador letal que dejó su sello en la red." },
+            { num: "11", name: "Mario Bevilacqua", pos: "Delantero", info: "El 'Pastor'; máximo goleador histórico en torneos de AFA." },
+            { num: "14", name: "Emilio Nicolás Commisso", pos: "Mediocampista", info: "Aportó jerarquía y gol en momentos clave." },
+            { num: "15", name: "Alejandro Gabriel Nannini", pos: "Delantero", info: "Atacante de recambio muy punzante." },
+            { num: "16", name: "Mario Alfonso Ballarino", pos: "Defensor", info: "Firmeza defensiva garantizada en el recambio." },
+            { num: "17", name: "Raúl Peralta", pos: "Mediocampista", info: "Volante central de gran despliegue y marca." }
+        ]
+    },
+    1990: {
+        hito: "Talleres mantiene la categoría con Adolfino Cañete.",
+        torneo: "Primera División 89/90",
+        plantel: [
+            { num: "1", name: "Sergio Genaro", pos: "Arquero", info: "Arquero titular seguro." },
+            { num: "12", name: "Fabián Prono", pos: "Arquero", info: "Arquero alternativa." },
+            { num: "4", name: "Carlos Julio Bustos", pos: "Defensor", info: "Zaguero de mando." },
+            { num: "2", name: "Daniel Kesman", pos: "Defensor", info: "El uruguayo. Muralla." },
+            { num: "3", name: "Juan Mario Obulgen", pos: "Defensor", info: "Lateral izquierdo cumplidor." },
+            { num: "6", name: "Alejandro Montenegro", pos: "Defensor", info: "Lateral/Volante izquierdo." },
+            { num: "5", name: "Amadeo Gasparini", pos: "Mediocampista", info: "Eje del mediocampo." },
+            { num: "8", name: "Héctor Chazarreta", pos: "Mediocampista", info: "Volante con gol." },
+            { num: "10", name: "Adolfino Cañete", pos: "Mediocampista", info: "El cerebro paraguayo." },
+            { num: "7", name: "Antonio Apud", pos: "Mediocampista", info: "El Turco. Despliegue total." },
+            { num: "9", name: "José Raúl Iglesias", pos: "Delantero", info: "El Toti. Definidor letal." },
+            { num: "11", name: "Mario Bevilacqua", pos: "Delantero", info: "Símbolo histórico." },
+            { num: "14", name: "Héctor Arzubialde", pos: "Defensor", info: "Zaguero central." },
+            { num: "15", name: "Claudio Bonetto", pos: "Defensor", info: "Defensor central." },
+            { num: "16", name: "Raúl Peralta", pos: "Mediocampista", info: "Volante central clave." }
+        ]
+    },
+    1991: {
+        hito: "Campaña destacada en el Apertura con Kenig.",
+        torneo: "Apertura 91 / Clausura 92",
+        plantel: [
+            { num: "1", name: "Fabián Prono", pos: "Arquero", info: "El Ruso. Titular." },
+            { num: "12", name: "Javier Zeoli", pos: "Arquero", info: "Internacional uruguayo." },
+            { num: "2", name: "Daniel Kesman", pos: "Defensor", info: "Zaguero central fiero." },
+            { num: "6", name: "Catalino Rivarola", pos: "Defensor", info: "Paraguayo. Una garantía." },
+            { num: "4", name: "Elvio Vázquez", pos: "Defensor", info: "Lateral derecho sólido." },
+            { num: "3", name: "Juan Mario Obulgen", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "5", name: "Amadeo Gasparini", pos: "Mediocampista", info: "El Toro eterno." },
+            { num: "8", name: "Raúl Peralta", pos: "Mediocampista", info: "Volante central de mando." },
+            { num: "10", name: "Claudio Rivadero", pos: "Mediocampista", info: "El Lute. El cerebro." },
+            { num: "7", name: "Oscar Olivera", pos: "Delantero", info: "Puntero atrevido." },
+            { num: "9", name: "Alejandro Kenig", pos: "Delantero", info: "El Tanque. Goleador punzante." },
+            { num: "11", name: "Mario Bevilacqua", pos: "Delantero", info: "El Pastor del gol." },
+            { num: "14", name: "Juan Carlos Ruiz Díaz", pos: "Delantero", info: "El Cascarilla." },
+            { num: "15", name: "Héctor Arzubialde", pos: "Defensor", info: "Zaguero fuerte." },
+            { num: "16", name: "Teófilo Barrios", pos: "Defensor", info: "Defensor paraguayo." }
+        ]
+    },
+    1992: {
+        hito: "Últimos años en Primera antes del descenso.",
+        torneo: "Primera División 91/92",
+        plantel: [
+            { num: "1", name: "Javier Zeoli", pos: "Arquero", info: "El uruguayo. Titular." },
+            { num: "12", name: "Fabián Prono", pos: "Arquero", info: "Alternativa." },
+            { num: "2", name: "Elvio Vázquez", pos: "Defensor", info: "Lateral derecho sólido." },
+            { num: "6", name: "Catalino Rivarola", pos: "Defensor", info: "Zaguero central de jerarquía." },
+            { num: "4", name: "Daniel Kesman", pos: "Defensor", info: "El uruguayo. Marcador." },
+            { num: "3", name: "Juan Mario Obulgen", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "5", name: "Raúl Peralta", pos: "Mediocampista", info: "Volante central." },
+            { num: "8", name: "Oscar Fornero", pos: "Mediocampista", info: "Volante mixto." },
+            { num: "10", name: "Claudio Rivadero", pos: "Mediocampista", info: "El Lute. Creativo." },
+            { num: "9", name: "Mario Bevilacqua", pos: "Delantero", info: "El Pastor. Goleador histórico." },
+            { num: "7", name: "Juan Carlos Ruiz Díaz", pos: "Delantero", info: "Atacante paraguayo." },
+            { num: "11", name: "Gustavo Domínguez", pos: "Delantero", info: "Extremo." },
+            { num: "14", name: "Alejandro Kenig", pos: "Delantero", info: "El Tanque." },
+            { num: "15", name: "Héctor Arzubialde", pos: "Defensor", info: "Zaguero." },
+            { num: "16", name: "Amadeo Gasparini", pos: "Mediocampista", info: "Referente." }
+        ]
+    },
+    1993: {
+        hito: "Descenso a la B Nacional. Temporada difícil.",
+        torneo: "Primera División 92/93",
+        plantel: [
+            { num: "1", name: "Luis Irusta", pos: "Arquero", info: "Arquero titular." },
+            { num: "12", name: "Fabián Prono", pos: "Arquero", info: "Suplente." },
+            { num: "2", name: "Teófilo Barrios", pos: "Defensor", info: "Lateral derecho paraguayo." },
+            { num: "6", name: "Catalino Rivarola", pos: "Defensor", info: "Zaguero central." },
+            { num: "4", name: "Daniel Kesman", pos: "Defensor", info: "Marcador central uruguayo." },
+            { num: "3", name: "Juan Mario Obulgen", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "5", name: "Fernando Galetto", pos: "Mediocampista", info: "El Conde. Volante central fino." },
+            { num: "8", name: "Marcelo Trobbiani", pos: "Mediocampista", info: "Campeón del Mundo 86. Enganche." },
+            { num: "10", name: "Eduardo Da Silva", pos: "Mediocampista", info: "El Dady. Volante ofensivo." },
+            { num: "7", name: "Ariel Boldrini", pos: "Delantero", info: "Extremo derecho veloz." },
+            { num: "9", name: "Juan Carlos Ruiz Díaz", pos: "Delantero", info: "El Cascarilla. Goleador." },
+            { num: "11", name: "Omar Benítez", pos: "Delantero", info: "Atacante paraguayo." },
+            { num: "14", name: "Héctor Alberto Chazarreta", pos: "Mediocampista", info: "Volante experimentado." },
+            { num: "15", name: "Osvaldo Mannarino", pos: "Delantero", info: "Delantero." },
+            { num: "16", name: "Alejandro Kenig", pos: "Delantero", info: "El Tanque." }
+        ]
+    },
+    1994: {
+        hito: "Campeón Octogonal B Nacional: El regreso a Primera tras vencer 3-1 a Instituto en la final histórica con goles de Kesman, Benítez y Osorio.",
+        torneo: "Primera B Nacional 93/94",
+        plantel: [
+            { num: "1", name: "Luis Irusta", pos: "Arquero", info: "Héroe del ascenso; seguridad total bajo los tres palos." },
+            { num: "2", name: "Diego Graieb", pos: "Defensor", info: "Zaguero central sólido y voz de mando en el fondo." },
+            { num: "6", name: "Catalino Rivarola", pos: "Defensor", info: "Zaguero paraguayo de enorme jerarquía internacional." },
+            { num: "4", name: "Daniel Kesman", pos: "Defensor", info: "El uruguayo; autor del primer gol en la final ante Instituto." },
+            { num: "3", name: "Horacio Rozzi", pos: "Defensor", info: "Lateral izquierdo titular con mucha proyección." },
+            { num: "5", name: "Ramón Benítez", pos: "Mediocampista", info: "El 'Chino'; autor de un golazo inolvidable de media distancia en la final." },
+            { num: "8", name: "José María Chacoma", pos: "Mediocampista", info: "Balance y equilibrio fundamental en la mitad de cancha." },
+            { num: "10", name: "Gustavo Fabián Spallina", pos: "Delantero", info: "El 'Tano'; atacante de área muy peligroso." },
+            { num: "7", name: "Ariel Boldrini", pos: "Delantero", info: "Puntero veloz y desequilibrante por las bandas." },
+            { num: "9", name: "Oscar Osorio", pos: "Delantero", info: "Autor del tercer gol que selló el ascenso en la Boutique." },
+            { num: "11", name: "Sandro Gauna", pos: "Delantero", info: "Aportó velocidad y frescura al ataque albiazul." },
+            { num: "12", name: "Rolando Irusta", pos: "Arquero", info: "Portero suplente que siempre estuvo a la altura." },
+            { num: "14", name: "Oscar Fornero", pos: "Mediocampista", info: "Volante de marca y entrega constante." },
+            { num: "15", name: "Amadeo Gasparini", pos: "Mediocampista", info: "El 'Toro'; el veterano ídolo aportó su mística en el ascenso." },
+            { num: "16", name: "Federico Lussenhoff", pos: "Defensor/Mediocampista", info: "El 'Colorado'; el juvenil que ya asomaba con gran futuro." }
+        ]
+    },
+    1995: {
+        hito: "Talleres en Primera División: Llegada de Silvio 'Tweety' Carrario y el regreso de Oscar 'Cocles' Dertycia.",
+        torneo: "Apertura 94 / Clausura 95",
+        plantel: [
+            { num: "1", name: "Luis Irusta", pos: "Arquero", info: "Continuidad del arquero del ascenso." },
+            { num: "4", name: "Diego Graieb", pos: "Defensor", info: "Zaguero central muy regular y firme." },
+            { num: "2", name: "Catalino Rivarola", pos: "Defensor", info: "Capitán y referente del fondo albiazul." },
+            { num: "6", name: "Daniel Kesman", pos: "Defensor", info: "Zaguero uruguayo sumamente aguerrido." },
+            { num: "3", name: "Horacio Rozzi", pos: "Defensor", info: "Lateral izquierdo inamovible." },
+            { num: "5", name: "Ramón Benítez", pos: "Mediocampista", info: "El 'Chino'; equilibrio en la mitad de cancha." },
+            { num: "8", name: "Silvio Carrario", pos: "Delantero", info: "El 'Tweety'; se convirtió rápidamente en ídolo a fuerza de goles." },
+            { num: "9", name: "Oscar Dertycia", pos: "Delantero", info: "El 'Cocles'; jerarquía goleadora internacional en el área." },
+            { num: "10", name: "José Luis Orellano", pos: "Mediocampista", info: "Enganche creativo de buen pie." },
+            { num: "7", name: "Ariel Boldrini", pos: "Delantero", info: "Velocidad constante por el frente de ataque." },
+            { num: "11", name: "Juan Carlos Ruiz Díaz", pos: "Delantero", info: "El 'Cascarilla'; siempre peligroso en el área rival." },
+            { num: "12", name: "Mario Cuenca", pos: "Arquero", info: "Joven arquero con enorme proyección y futuro." },
+            { num: "14", name: "Eduardo Da Silva", pos: "Mediocampista", info: "El 'Dady'; talento uruguayo en la conducción." },
+            { num: "15", name: "Gualberto Rivadero", pos: "Mediocampista", info: "Volante central de mucha entrega física." },
+            { num: "16", name: "Federico Lussenhoff", pos: "Defensor/Mediocampista", info: "El 'Colorado'; consolidándose como una realidad." }
+        ]
+    },
+    1996: {
+        hito: "Campeón Clausura B Nacional. Final por el ascenso.",
+        torneo: "Primera B Nacional Clausura 96",
+        plantel: [
+            { num: "1", name: "Luis Irusta", pos: "Arquero", info: "Continuidad en el arco." },
+            { num: "12", name: "Mario Cuenca", pos: "Arquero", info: "Sus primeras intervenciones." },
+            { num: "2", name: "Teófilo Barrios", pos: "Defensor", info: "Lateral derecho paraguayo." },
+            { num: "4", name: "Catalino Rivarola", pos: "Defensor", info: "Zaguero central de mando." },
+            { num: "6", name: "Daniel Kesman", pos: "Defensor", info: "Marcador uruguayo." },
+            { num: "3", name: "Alejandro Montenegro", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "5", name: "Fernando Galetto", pos: "Mediocampista", info: "Volante central fino." },
+            { num: "8", name: "Jorge Gasparini", pos: "Mediocampista", info: "Volante experimentado." },
+            { num: "10", name: "José Luis Orellano", pos: "Mediocampista", info: "Enganche creativo." },
+            { num: "9", name: "Juan Carlos Ruiz Díaz", pos: "Delantero", info: "Goleador histórico." },
+            { num: "7", name: "Ariel Boldrini", pos: "Delantero", info: "Extremo veloz." },
+            { num: "11", name: "Darío Depietri", pos: "Delantero", info: "Atacante." },
+            { num: "14", name: "Fabián Montelongo", pos: "Defensor", info: "Zaguero." },
+            { num: "15", name: "Diego Graieb", pos: "Defensor", info: "Defensor central." },
+            { num: "16", name: "Javier Villarreal", pos: "Mediocampista", info: "Juvenil con futuro." }
+        ]
+    },
+    1997: {
+        hito: "Inicio del proceso del ascenso 98: Ricardo Gareca asume como DT y llega el 'Mencho' Medina Bello.",
+        torneo: "Nacional B 96/97",
+        plantel: [
+            { num: "1", name: "Mario Cuenca", pos: "Arquero", info: "Dueño indiscutido del arco; especialista en penales." },
+            { num: "2", name: "José Tiburcio Serrizuela", pos: "Defensor", info: "El 'Tiburón'; jerarquía de Selección en la zaga central." },
+            { num: "6", name: "Horacio Humoller", pos: "Defensor", info: "Líder defensivo de gran temperamento y experiencia." },
+            { num: "4", name: "Gustavo Lillo", pos: "Defensor", info: "El 'Loco'; lateral derecho de gran despliegue físico." },
+            { num: "3", name: "David Díaz", pos: "Defensor", info: "Marcador de punta con mucha marca y entrega." },
+            { num: "5", name: "Andrés Cabrera", pos: "Mediocampista", info: "Eje del mediocampo; equilibrio táctico fundamental." },
+            { num: "8", name: "Ramón Ismael Medina Bello", pos: "Delantero", info: "El 'Mencho'; potencia mundialista para el ataque albiazul." },
+            { num: "10", name: "Diego Garay", pos: "Mediocampista", info: "El gran 10; ídolo de la hinchada por su talento y pegada." },
+            { num: "7", name: "Daniel Albornos", pos: "Mediocampista", info: "La 'Chanchita'; desequilibrio puro por la banda derecha." },
+            { num: "9", name: "José 'Cachi' Zelaya", pos: "Delantero", info: "Goleador tucumano; pieza clave del frente de ataque." },
+            { num: "11", name: "Roberto Oste", pos: "Delantero", info: "El 'Lute'; autor de goles decisivos para el equipo." },
+            { num: "14", name: "Marcelino Galoppo", pos: "Defensor", info: "Zaguero central firme y de gran juego aéreo." },
+            { num: "15", name: "Javier Villarreal", pos: "Mediocampista", info: "El motor juvenil del mediocampo con gran futuro." },
+            { num: "16", name: "Rodrigo Astudillo", pos: "Delantero", info: "El 'Potro'; velocidad y frescura para el ataque." },
+            { num: "17", name: "Fernando Clementz", pos: "Mediocampista", info: "Aportó garra y juego por la banda izquierda." }
+        ]
+    },
+};

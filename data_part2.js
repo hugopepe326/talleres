@@ -1,0 +1,423 @@
+// PARTE 2: Datos históricos 1960-1979
+const dataP2 = {
+    1960: {
+        hito: "Campeón Liga Cordobesa. Comienzo de una era de dominio local.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Jesús Gallegos", pos: "Arquero", info: "Arquero titular." },
+            { num: "-", name: "Miguel A. 'Wanora' Romero", pos: "Delantero", info: "Goleador imparable." },
+            { num: "-", name: "Roberto 'Chancha' Cortez", pos: "Delantero", info: "Atacante de área." },
+            { num: "-", name: "Miguel Ponce", pos: "Defensor", info: "Zaguero central." },
+            { num: "-", name: "Abel Montoya", pos: "Mediocampista", info: "Volante central." },
+            { num: "-", name: "Atilio Willington", pos: "Mediocampista", info: "Referente del equipo." },
+            { num: "-", name: "Rogelio Cuello", pos: "Delantero", info: "Últimas etapas del goleador." },
+            { num: "-", name: "Alberto 'Tata' Sánchez", pos: "Defensor", info: "Defensor central sólido." },
+            { num: "-", name: "Pedro Moyano", pos: "Delantero", info: "Puntero rápido." },
+            { num: "-", name: "Roque Taborda", pos: "Mediocampista", info: "Volante ofensivo." },
+            { num: "-", name: "Antonio Del Río", pos: "Defensor", info: "Lateral." },
+            { num: "-", name: "Juan José González", pos: "Mediocampista", info: "Volante de marca." },
+            { num: "-", name: "Joaquín Alonso", pos: "Delantero", info: "Atacante." },
+            { num: "-", name: "Fermín Flamini", pos: "Mediocampista", info: "Volante." },
+            { num: "-", name: "Alfonso Reinaldi", pos: "Arquero", info: "Arquero suplente." }
+        ]
+    },
+    1961: {
+        hito: "Continuidad del dominio en la Liga Cordobesa con Miguel Antonio Romero como estandarte.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Jesús Gallegos", pos: "Arquero", info: "Guardameta titular de grandes reflejos." },
+            { num: "-", name: "Miguel A. 'Wanora' Romero", pos: "Delantero", info: "Máximo goleador histórico del equipo." },
+            { num: "-", name: "Miguel Ponce", pos: "Defensor", info: "Líder indiscutido de la zaga central." },
+            { num: "-", name: "Abel Montoya", pos: "Mediocampista", info: "Eje del mediocampo con gran despliegue." },
+            { num: "-", name: "Roberto Cortez", pos: "Delantero", info: "Centrodelantero de potencia y gol." },
+            { num: "-", name: "Alberto 'Tata' Sánchez", pos: "Defensor", info: "Zaguero de gran presencia física." },
+            { num: "-", name: "Roque Taborda", pos: "Mediocampista", info: "Volante creativo con mucha llegada." },
+            { num: "-", name: "Joaquín Alonso", pos: "Delantero", info: "Puntero derecho veloz." },
+            { num: "-", name: "Pedro Moyano", pos: "Delantero", info: "Extremo izquierdo de gran técnica." },
+            { num: "-", name: "Atilio Willington", pos: "Mediocampista", info: "Referente y dueño de la mitad de cancha." },
+            { num: "-", name: "Rogelio Cuello", pos: "Delantero", info: "Últimas temporadas del gran goleador." },
+            { num: "-", name: "Néstor Massetani", pos: "Defensor", info: "Lateral izquierdo sólido." },
+            { num: "-", name: "Daniel Willington", pos: "Delantero", info: "La joven promesa brilla antes de partir a Buenos Aires." },
+            { num: "-", name: "Alfonso Paolucci", pos: "Mediocampista", info: "Aportó equilibrio defensivo." },
+            { num: "-", name: "Miguel Ángel Charras", pos: "Defensor", info: "Joven defensor que asoma en el plantel." }
+        ]
+    },
+    1962: {
+        hito: "Talleres protagonista del fútbol cordobés. Retiro de Rogelio Cuello tras una carrera legendaria.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Jesús Gallegos", pos: "Arquero", info: "Titular inamovible del arco albiazul." },
+            { num: "-", name: "Miguel A. 'Wanora' Romero", pos: "Delantero", info: "Goleador consagrado y símbolo." },
+            { num: "-", name: "Rogelio Cuello", pos: "Delantero", info: "Se retira el gran 'Negro' Cuello tras 12 años en el club." },
+            { num: "-", name: "Miguel Ponce", pos: "Defensor", info: "Capitán de la zaga central." },
+            { num: "-", name: "Abel Montoya", pos: "Mediocampista", info: "Volante central de gran equilibrio." },
+            { num: "-", name: "Alberto 'Tata' Sánchez", pos: "Defensor", info: "Zaguero central de jerarquía." },
+            { num: "-", name: "Roque Taborda", pos: "Mediocampista", info: "Mediocampista creativo con llegada." },
+            { num: "-", name: "Joaquín Alonso", pos: "Delantero", info: "Puntero derecho de mucha velocidad." },
+            { num: "-", name: "Pedro Moyano", pos: "Delantero", info: "Extremo izquierdo habilidoso." },
+            { num: "-", name: "Atilio Willington", pos: "Mediocampista", info: "Últimos años del gran volante central." },
+            { num: "-", name: "Néstor Massetani", pos: "Defensor", info: "Marcador lateral izquierdo." },
+            { num: "-", name: "Eladio Rodríguez", pos: "Mediocampista", info: "Volante con dinámica por banda." },
+            { num: "-", name: "Roberto Cortez", pos: "Delantero", info: "Atacante potente del área." },
+            { num: "-", name: "Antonio Del Río", pos: "Defensor", info: "Lateral derecho de mucha entrega." },
+            { num: "-", name: "Francisco Olmedo (h)", pos: "Delantero", info: "Aportó goles y experiencia." }
+        ]
+    },
+    1963: {
+        hito: "Campeón Oficial Liga Cordobesa. Un equipo para el recuerdo.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Jesús Gallegos", pos: "Arquero", info: "Arquero del campeón." },
+            { num: "-", name: "Alberto 'Tata' Sánchez", pos: "Defensor", info: "Zaguero central líder." },
+            { num: "-", name: "Nicolás Campos", pos: "Defensor", info: "Zaguero central sólido." },
+            { num: "-", name: "Miguel Ponce", pos: "Defensor", info: "Defensa experimentado." },
+            { num: "-", name: "Abel Montoya", pos: "Mediocampista", info: "Eje del mediocampo." },
+            { num: "-", name: "Roque Taborda", pos: "Mediocampista", info: "Volante ofensivo." },
+            { num: "-", name: "Francisco Armenante", pos: "Mediocampista", info: "Talento y elegancia." },
+            { num: "-", name: "Joaquín Alonso", pos: "Delantero", info: "Goleador clave." },
+            { num: "-", name: "Miguel A. 'Wanora' Romero", pos: "Delantero", info: "Leyenda del gol." },
+            { num: "-", name: "Roberto 'Chancha' Cortez", pos: "Delantero", info: "Socio de ataque de Romero." },
+            { num: "-", name: "Pedro Moyano", pos: "Delantero", info: "Extremo veloz." },
+            { num: "-", name: "Néstor Massetani", pos: "Defensor", info: "Lateral izquierdo sólido." },
+            { num: "-", name: "Juan José González", pos: "Mediocampista", info: "Marca férrea en el medio." },
+            { num: "-", name: "Eladio Rodríguez", pos: "Mediocampista", info: "Dinámica por las bandas." },
+            { num: "-", name: "Miguel Hugo Rivarola", pos: "Delantero", info: "Ataque punzante." }
+        ]
+    },
+    1964: {
+        hito: "Amistoso histórico ante el Santos de Pelé en La Boutique. Talleres cae 2-1 en un duelo para el recuerdo.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Jesús Gallegos", pos: "Arquero", info: "Arquero titular ante el Santos de Pelé." },
+            { num: "-", name: "Miguel Ponce", pos: "Defensor", info: "Pilar defensivo que enfrentó a las figuras brasileñas." },
+            { num: "-", name: "Andrés Kasparián", pos: "Defensor", info: "Zaguero central en la histórica jornada." },
+            { num: "-", name: "Jorge Campos", pos: "Defensor", info: "Defensor titular ante el Santos." },
+            { num: "-", name: "Roberto Cortez", pos: "Defensor/Delantero", info: "Jugó como defensor en el partido histórico." },
+            { num: "-", name: "Héctor Scurti", pos: "Defensor", info: "Defensor que completó la línea del fondo." },
+            { num: "-", name: "Roque Taborda", pos: "Mediocampista", info: "Manejó el juego ante el mediocampo de Gilmar y Lima." },
+            { num: "-", name: "Héctor Riquelme", pos: "Mediocampista", info: "Volante que aportó equilibrio ante los brasileños." },
+            { num: "-", name: "Miguel A. 'Wanora' Romero", pos: "Delantero", info: "El gran goleador presente en la cita máxima." },
+            { num: "-", name: "Antonio Avila", pos: "Delantero", info: "Atacante titular en el duelo ante Pelé." },
+            { num: "-", name: "Odilio Reynoso", pos: "Delantero", info: "Cerró el tridente ofensivo ante el Santos." },
+            { num: "-", name: "Pedro Moyano", pos: "Delantero", info: "Ingresó para aportar velocidad." },
+            { num: "-", name: "Francisco Armenante", pos: "Mediocampista", info: "Capitán y talento en la mitad de la cancha." },
+            { num: "-", name: "Néstor Massetani", pos: "Defensor", info: "Lateral izquierdo de gran despliegue." },
+            { num: "-", name: "Joaquín Alonso", pos: "Delantero", info: "Atacante veloz que alternó en el equipo." }
+        ]
+    },
+    1965: {
+        hito: "Talleres mantiene su base ganadora local ante grandes rivales.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Jesús Gallegos", pos: "Arquero", info: "Referente del arco." },
+            { num: "-", name: "Francisco Armenante", pos: "Mediocampista", info: "Talento creativo." },
+            { num: "-", name: "Miguel A. 'Wanora' Romero", pos: "Delantero", info: "Líder goleador." },
+            { num: "-", name: "Miguel Ponce", pos: "Defensor", info: "Eje de la defensa." },
+            { num: "-", name: "Abel Montoya", pos: "Mediocampista", info: "Volante central sólido." },
+            { num: "-", name: "Fermín Flamini", pos: "Mediocampista", info: "Marca y entrega." },
+            { num: "-", name: "Roque Taborda", pos: "Mediocampista", info: "Mediocampista ofensivo." },
+            { num: "-", name: "Joaquín Alonso", pos: "Delantero", info: "Atacante de área." },
+            { num: "-", name: "Pedro Moyano", pos: "Delantero", info: "Puntero izquierdo." },
+            { num: "-", name: "Juan José González", pos: "Mediocampista", info: "Volante central de contención." },
+            { num: "-", name: "Néstor Massetani", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "-", name: "Antonio Del Río", pos: "Defensor", info: "Zaguero central." },
+            { num: "-", name: "Miguel Hugo Rivarola", pos: "Delantero", info: "Potencia ofensiva." },
+            { num: "-", name: "Salvador Scalisi", pos: "Defensor", info: "Zaguero central." },
+            { num: "-", name: "Roberto Galíndez", pos: "Defensor", info: "Defensor rudo." }
+        ]
+    },
+    1966: {
+        hito: "Grandes actuaciones en la Liga Cordobesa. La base del Nacional 69.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Jesús Gallegos", pos: "Arquero", info: "Arquero titular." },
+            { num: "-", name: "Miguel A. 'Wanora' Romero", pos: "Delantero", info: "El gran goleador." },
+            { num: "-", name: "Miguel Ponce", pos: "Defensor", info: "Referente defensivo." },
+            { num: "-", name: "Francisco Armenante", pos: "Mediocampista", info: "Volante central clave." },
+            { num: "-", name: "Juan José González", pos: "Mediocampista", info: "Volante de marca." },
+            { num: "-", name: "Eladio Rodríguez", pos: "Mediocampista", info: "Mediocampista mixto." },
+            { num: "-", name: "Fermín Flamini", pos: "Mediocampista", info: "Volante central." },
+            { num: "-", name: "Abel Montoya", pos: "Mediocampista", info: "Regularidad." },
+            { num: "-", name: "Roberto Cortez", pos: "Delantero", info: "Ataque punzante." },
+            { num: "-", name: "Joaquín Alonso", pos: "Delantero", info: "Delantero." },
+            { num: "-", name: "Pedro Moyano", pos: "Delantero", info: "Puntero." },
+            { num: "-", name: "Miguel Hugo Rivarola", pos: "Delantero", info: "Centrodelantero." },
+            { num: "-", name: "Néstor Massetani", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "-", name: "Antonio Del Río", pos: "Defensor", info: "Defensa sólido." },
+            { num: "-", name: "Miguel Ángel Frullingui", pos: "Delantero", info: "Atacante veloz." }
+        ]
+    },
+    1967: {
+        hito: "Últimos años de Romero en el club. Transición generacional.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Jesús Gallegos", pos: "Arquero", info: "Arquero histórico." },
+            { num: "-", name: "Miguel A. 'Wanora' Romero", pos: "Delantero", info: "Goleador legendario." },
+            { num: "-", name: "Francisco Armenante", pos: "Mediocampista", info: "Volante central y capitán." },
+            { num: "-", name: "Miguel Ponce", pos: "Defensor", info: "Veterano referente." },
+            { num: "-", name: "Fermín Flamini", pos: "Mediocampista", info: "Marca en el medio." },
+            { num: "-", name: "Abel Montoya", pos: "Mediocampista", info: "Volante mixto." },
+            { num: "-", name: "Roberto Cortez", pos: "Delantero", info: "Atacante de área." },
+            { num: "-", name: "Juan José González", pos: "Mediocampista", info: "Mediocampista central." },
+            { num: "-", name: "Eladio Rodríguez", pos: "Mediocampista", info: "Mediocampista con gol." },
+            { num: "-", name: "Joaquín Alonso", pos: "Delantero", info: "Centrodelantero." },
+            { num: "-", name: "Pedro Moyano", pos: "Delantero", info: "Puntero izquierdo." },
+            { num: "-", name: "Néstor Massetani", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "-", name: "Antonio Del Río", pos: "Defensor", info: "Zaguero." },
+            { num: "-", name: "Miguel Ángel Charras", pos: "Defensor", info: "Zaguero central del club." },
+            { num: "-", name: "Miguel Hugo Rivarola", pos: "Delantero", info: "Ataque punzante." }
+        ]
+    },
+    1968: {
+        hito: "Retiro de Miguel Antonio Romero, máximo goleador histórico. Debut de Carlos 'Chupete' Guerini.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Jesús Gallegos", pos: "Arquero", info: "Fiel al arco de Talleres hasta el final." },
+            { num: "-", name: "Miguel A. 'Wanora' Romero", pos: "Delantero", info: "163 goles en 242 partidos. El adiós del ídolo máximo." },
+            { num: "-", name: "Carlos 'Chupete' Guerini", pos: "Delantero", info: "Debuta un atacante de jerarquía internacional." },
+            { num: "-", name: "Miguel Ponce", pos: "Defensor", info: "Últimos cartuchos del gran capitán defensivo." },
+            { num: "-", name: "Francisco Armenante", pos: "Mediocampista", info: "Eje creativo y alma del equipo." },
+            { num: "-", name: "Abel Montoya", pos: "Mediocampista", info: "Mediocampista central experimentado." },
+            { num: "-", name: "Roberto Cortez", pos: "Delantero", info: "Delantero potente que seguía aportando." },
+            { num: "-", name: "Juan José González", pos: "Mediocampista", info: "Puntual en el equilibrio del medio." },
+            { num: "-", name: "Eladio Rodríguez", pos: "Mediocampista", info: "Volante con llegada y buen juego." },
+            { num: "-", name: "Joaquín Alonso", pos: "Delantero", info: "Goleador que aportó su cuota en el año." },
+            { num: "-", name: "Pedro Moyano", pos: "Delantero", info: "Puntero de gran velocidad por banda." },
+            { num: "-", name: "Néstor Massetani", pos: "Defensor", info: "Marcador lateral izquierdo." },
+            { num: "-", name: "Antonio Del Río", pos: "Defensor", info: "Defensa central con mucho temperamento." },
+            { num: "-", name: "Aníbal Rodríguez", pos: "Delantero", info: "Atacante de banda habilidoso." },
+            { num: "-", name: "Miguel Ángel Charras", pos: "Defensor", info: "Zaguero central de la cantera albiazul." }
+        ]
+    },
+    1969: {
+        hito: "Debut en los Nacionales. Partido histórico en La Bombonera.",
+        torneo: "Nacional 1969",
+        plantel: [
+            { num: "1", name: "José Gómez", pos: "Arquero", info: "Titular en el debut ante Boca." },
+            { num: "4", name: "Antonio Del Río", pos: "Defensor", info: "Lateral derecho." },
+            { num: "2", name: "Miguel Ángel Charras", pos: "Defensor", info: "Marcador central." },
+            { num: "6", name: "Carlos Griguol", pos: "Defensor", info: "Zaguero y referente." },
+            { num: "3", name: "Néstor Massetani", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "8", name: "Eladio Rodríguez", pos: "Mediocampista", info: "Volante por derecha." },
+            { num: "5", name: "Juan José González", pos: "Mediocampista", info: "Volante central." },
+            { num: "10", name: "Francisco Armenante", pos: "Mediocampista", info: "Volante creativo." },
+            { num: "7", name: "Miguel Ángel Frullingui", pos: "Delantero", info: "Puntero." },
+            { num: "9", name: "Miguel Hugo Rivarola", pos: "Delantero", info: "Centrodelantero." },
+            { num: "11", name: "Aníbal Rodríguez", pos: "Delantero", info: "Puntero izquierdo." },
+            { num: "12", name: "Martín Fonseca", pos: "Arquero", info: "Representante del club." },
+            { num: "13", name: "Jorge Daniel Guyón", pos: "Defensor", info: "El Jabalí. Ingresó ante Boca." },
+            { num: "14", name: "Héctor Ártico", pos: "Defensor", info: "El Gringo. Sus comienzos." },
+            { num: "15", name: "Miguel Patire", pos: "Defensor", info: "Defensor central." }
+        ]
+    },
+    1970: {
+        hito: "Debut de Luis Galván, futuro campeón mundial. Victoria histórica 3-2 ante San Lorenzo en el Nacional.",
+        torneo: "Nacional 1970",
+        plantel: [
+            { num: "1", name: "José Gómez", pos: "Arquero", info: "Dueño del arco en el torneo Nacional." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Debut absoluto del gran zaguero santiagueño." },
+            { num: "4", name: "Antonio Del Río", pos: "Defensor", info: "Marcador lateral con mucha experiencia." },
+            { num: "6", name: "Carlos Griguol", pos: "Defensor", info: "Timoteo; referente y zaguero central del equipo." },
+            { num: "3", name: "Néstor Massetani", pos: "Defensor", info: "Lateral izquierdo de proyección." },
+            { num: "5", name: "Juan José González", pos: "Mediocampista", info: "Volante central de gran marca." },
+            { num: "8", name: "Eladio Rodríguez", pos: "Mediocampista", info: "Volante creativo con buen manejo." },
+            { num: "10", name: "Francisco Armenante", pos: "Mediocampista", info: "El gran 10 de Talleres en la transición." },
+            { num: "7", name: "Miguel Ángel Frullingui", pos: "Delantero", info: "Puntero veloz por derecha." },
+            { num: "9", name: "Miguel Hugo Rivarola", pos: "Delantero", info: "Centrodelantero de los Nacionales." },
+            { num: "11", name: "Aníbal Rodríguez", pos: "Delantero", info: "Atacante por banda izquierda." },
+            { num: "14", name: "Héctor Ártico", pos: "Defensor", info: "El 'Gringo'; se asienta en la zaga central." },
+            { num: "15", name: "Jorge Daniel Guyón", pos: "Defensor", info: "El 'Jabalí'; ya es una alternativa de peso." },
+            { num: "16", name: "Alberto Antonio De Sa", pos: "Delantero", info: "Aportó su cuota goleadora en el Nacional." },
+            { num: "17", name: "Humberto Pablo Taborda", pos: "Mediocampista", info: "Volante central de buen pie." }
+        ]
+    },
+    1971: {
+        hito: "Debut del arquero Oscar Quiroga. Talleres se consolida como el grande del interior.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Oscar Quiroga", pos: "Arquero", info: "Debut del 'Hacha'; arquero de enorme personalidad." },
+            { num: "-", name: "Luis Galván", pos: "Defensor", info: "Elegancia y seguridad en el centro de la defensa." },
+            { num: "-", name: "Héctor Ártico", pos: "Defensor", info: "El 'Gringo'; zaguero central potente y aguerrido." },
+            { num: "-", name: "Victorio Ocaño", pos: "Defensor", info: "Joven lateral que comienza a asomarse." },
+            { num: "-", name: "Carlos Lamela", pos: "Delantero", info: "Atacante con gol que rindió en la temporada." },
+            { num: "-", name: "Juan José González", pos: "Mediocampista", info: "Volante central inamovible por marca y entrega." },
+            { num: "-", name: "Eladio Rodríguez", pos: "Mediocampista", info: "Aportó técnica y panorama al mediocampo." },
+            { num: "-", name: "Francisco Armenante", pos: "Mediocampista", info: "El gran capitán de la era de transición." },
+            { num: "-", name: "Miguel Ángel Frullingui", pos: "Delantero", info: "Puntero derecho movedizo y veloz." },
+            { num: "-", name: "Miguel Hugo Rivarola", pos: "Delantero", info: "Experiencia en el centro del ataque." },
+            { num: "-", name: "Aníbal Rodríguez", pos: "Delantero", info: "Goles por la banda izquierda." },
+            { num: "-", name: "Antonio Del Río", pos: "Defensor", info: "Últimas etapas del aguerrido defensor." },
+            { num: "-", name: "José Gómez", pos: "Arquero", info: "Arquero experimentado que alternó en el arco." },
+            { num: "-", name: "Jorge Daniel Guyón", pos: "Defensor", info: "Firmeza defensiva garantizada por el 'Jabalí'." },
+            { num: "-", name: "Alberto Antonio De Sa", pos: "Delantero", info: "Aportó su capacidad goleadora." }
+        ]
+    },
+    1972: {
+        hito: "Debut de Victorio Ocaño. Talleres sigue nutriéndose de su gran cantera.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Oscar Quiroga", pos: "Arquero", info: "Arquero titular; pilar del equipo matador." },
+            { num: "-", name: "Luis Galván", pos: "Defensor", info: "Zaguero central impecable; clase pura." },
+            { num: "-", name: "Victorio Ocaño", pos: "Defensor/Mediocampista", info: "Debutó con 17 años con una madurez asombrosa." },
+            { num: "-", name: "Héctor Ártico", pos: "Defensor", info: "Firmeza absoluta en la zaga central." },
+            { num: "-", name: "Eduardo Astudillo", pos: "Defensor", info: "Lateral izquierdo de gran proyección." },
+            { num: "-", name: "Juan José González", pos: "Mediocampista", info: "Volante de marca y equilibrio." },
+            { num: "-", name: "Eladio Rodríguez", pos: "Mediocampista", info: "Manejo del juego ante los duros rivales locales." },
+            { num: "-", name: "Francisco Armenante", pos: "Mediocampista", info: "Últimos años comandando la mitad de cancha." },
+            { num: "-", name: "Miguel Ángel Frullingui", pos: "Delantero", info: "Puntero derecho veloz y desequilibrante." },
+            { num: "-", name: "Aníbal Rodríguez", pos: "Delantero", info: "Atacante punzante por izquierda." },
+            { num: "-", name: "Carlos Lamela", pos: "Delantero", info: "Goleador presente en la red." },
+            { num: "-", name: "Jorge Daniel Guyón", pos: "Defensor", info: "El 'Jabalí'; zaguero central de gran temperamento." },
+            { num: "-", name: "Luis Antonio Ludueña", pos: "Mediocampista", info: "Comenzó a alternar demostrando su jerarquía." },
+            { num: "-", name: "Miguel Patire", pos: "Defensor", info: "Aportó solidez desde el banco de suplentes." },
+            { num: "-", name: "José Alberto De Sa", pos: "Delantero", info: "Sus goles fueron claves en la campaña." }
+        ]
+    },
+    1973: {
+        hito: "Llegada de Amadeo Nuccetelli a la presidencia. Regreso del ídolo Daniel Willington y debut de Angel Bocanelli.",
+        torneo: "Liga Cordobesa",
+        plantel: [
+            { num: "-", name: "Daniel Willington", pos: "Mediocampista", info: "El 'Daniel' regresa de Huracán para ser el jefe del equipo." },
+            { num: "-", name: "Oscar Quiroga", pos: "Arquero", info: "Arquero titular indiscutido del inicio de la era dorada." },
+            { num: "-", name: "Luis Galván", pos: "Defensor", info: "Líder de la defensa; clase y elegancia en la zaga." },
+            { num: "-", name: "Victorio Ocaño", pos: "Defensor", info: "Zaguero de jerarquía ya consolidado como titular." },
+            { num: "-", name: "Angel Bocanelli", pos: "Delantero", info: "Debut del veloz puntero que se convertiría en emblema." },
+            { num: "-", name: "Luis Antonio Ludueña", pos: "Mediocampista", info: "El 'Hacha'; comenzó a deslumbrar a todo Córdoba." },
+            { num: "-", name: "Eduardo Astudillo", pos: "Defensor", info: "Marcador lateral izquierdo inamovible." },
+            { num: "-", name: "Héctor Ártico", pos: "Defensor", info: "Defensor central de gran fortaleza física." },
+            { num: "-", name: "Juan Domingo Cabrera", pos: "Mediocampista", info: "Elegancia y técnica en la mitad de la cancha." },
+            { num: "-", name: "Aníbal Rodríguez", pos: "Delantero", info: "Goleador presente en el campeonato local." },
+            { num: "-", name: "Miguel Ángel Patire", pos: "Defensor", info: "Defensor central sólido y cumplidor." },
+            { num: "-", name: "Francisco Rivadero", pos: "Mediocampista", info: "Volante de marca que aportó equilibrio." },
+            { num: "-", name: "Jorge Daniel Guyón", pos: "Defensor", info: "El 'Jabalí'; zaguero siempre listo para la batalla." },
+            { num: "-", name: "Gualberto Muggione", pos: "Mediocampista", info: "Experiencia en el mediocampo albiazul." },
+            { num: "-", name: "Héctor Taborda", pos: "Mediocampista", info: "Volante con mucho panorama y buen pie." }
+        ]
+    },
+    1974: {
+        hito: "Histórica campaña en el Nacional 74. Talleres finalista y sensación del fútbol argentino bajo la conducción de Ángel Labruna.",
+        torneo: "Nacional 1974",
+        plantel: [
+            { num: "1", name: "Oscar Quiroga", pos: "Arquero", info: "El 'Hacha'; arquero titular y una de las grandes figuras del torneo." },
+            { num: "4", name: "Pablo Comelles", pos: "Defensor", info: "Lateral derecho de gran potencia y despliegue físico." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Capitán y baluarte defensivo; jerarquía pura en la zaga." },
+            { num: "6", name: "Héctor Ártico", pos: "Defensor", info: "El 'Gringo'; zaguero central implacable en la marca." },
+            { num: "3", name: "Eduardo Astudillo", pos: "Defensor", info: "Marcador de punta izquierdo con mucha proyección." },
+            { num: "5", name: "Miguel Oviedo", pos: "Mediocampista", info: "La 'Cata'; llegó de Instituto y se volvió el eje del equipo." },
+            { num: "8", name: "Luis Antonio Ludueña", pos: "Mediocampista", info: "El 'Dios del Fútbol'; asombró al país con su talento." },
+            { num: "10", name: "Daniel Willington", pos: "Mediocampista", info: "El 'Daniel'; aportó toda su magia y veteranía en el Nacional." },
+            { num: "7", name: "Angel Bocanelli", pos: "Delantero", info: "Puntero derecho letal y muy veloz." },
+            { num: "9", name: "Oscar Fachetti", pos: "Delantero", info: "Goleador cordobés que aportó potencia en el área." },
+            { num: "11", name: "Antonio Alderete", pos: "Delantero", info: "Atacante por banda izquierda de gran rendimiento." },
+            { num: "12", name: "Rubén Guibaudo", pos: "Arquero", info: "Arquero de gran nivel que alternó con Quiroga." },
+            { num: "14", name: "Victorio Ocaño", pos: "Defensor", info: "Zaguero central de enorme futuro y gran presente." },
+            { num: "15", name: "Juan Domingo Cabrera", pos: "Mediocampista", info: "Volante central con mucha clase y panorama." },
+            { num: "16", name: "Humberto Taborda", pos: "Mediocampista", info: "Aportó su experiencia y buen pie en la mitad de cancha." }
+        ]
+    },
+    1975: {
+        hito: "Llega Daniel Valencia de Jujuy. Talleres mantiene su competitividad en los torneos Nacionales.",
+        torneo: "Nacional 1975",
+        plantel: [
+            { num: "1", name: "Oscar Quiroga", pos: "Arquero", info: "Consolidado como uno de los mejores del arco nacional." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Líder de la defensa; su jerarquía lo lleva a la selección." },
+            { num: "3", name: "Eduardo Astudillo", pos: "Defensor", info: "Lateral izquierdo de gran despliegue." },
+            { num: "4", name: "Pablo Comelles", pos: "Defensor", info: "Firmeza y potencia por la banda derecha." },
+            { num: "6", name: "Victorio Ocaño", pos: "Defensor", info: "Eje de la zaga central albiazul." },
+            { num: "5", name: "Miguel Oviedo", pos: "Mediocampista", info: "La 'Cata'; mediocampista total por marca y juego." },
+            { num: "8", name: "Luis Antonio Ludueña", pos: "Mediocampista", info: "El 'Hacha'; deleitando con su pegada y visión." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "El 'Rana'; llega de Gimnasia de Jujuy para ser el nuevo 10." },
+            { num: "7", name: "Angel Bocanelli", pos: "Delantero", info: "Puntero derecho desequilibrante." },
+            { num: "9", name: "Oscar Fachetti", pos: "Delantero", info: "El goleador que mantuvo su racha en el arco rival." },
+            { num: "11", name: "Antonio Alderete", pos: "Delantero", info: "Extremo izquierdo de gran rendimiento." },
+            { num: "14", name: "Francisco Rivadero", pos: "Mediocampista", info: "Volante de marca que brindó equilibrio defensivo." },
+            { num: "15", name: "Daniel Willington", pos: "Mediocampista", info: "Aportó su magia en sus últimas etapas como jugador." },
+            { num: "16", name: "Víctor Binello", pos: "Defensor", info: "Zaguero fuerte que fue alternativa constante." },
+            { num: "17", name: "Gualberto Muggione", pos: "Mediocampista", info: "Referente del mediocampo con gran temperamento." }
+        ]
+    },
+    1976: {
+        hito: "Campeón Liga Cordobesa. Clasificación al Nacional.",
+        torneo: "Nacional 1976 / Liga Cordobesa",
+        plantel: [
+            { num: "1", name: "Oscar Quiroga", pos: "Arquero", info: "El 'Hacha'." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Referente." },
+            { num: "4", name: "Victorio Ocaño", pos: "Defensor", info: "Lateral titular." },
+            { num: "5", name: "Víctor Binello", pos: "Defensor", info: "Zaguero." },
+            { num: "3", name: "Eduardo Astudillo", pos: "Defensor", info: "Lateral izquierdo." },
+            { num: "8", name: "Luis Ludueña", pos: "Mediocampista", info: "Figura." },
+            { num: "6", name: "Miguel Oviedo", pos: "Mediocampista", info: "Volante." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "Enganche." },
+            { num: "7", name: "Ángel Bocanelli", pos: "Delantero", info: "Extremo derecho." },
+            { num: "9", name: "Humberto Bravo", pos: "Delantero", info: "Goleador." },
+            { num: "11", name: "Antonio Alderete", pos: "Delantero", info: "Extremo izquierdo." },
+            { num: "10", name: "Humberto Taborda", pos: "Mediocampista", info: "Clave en el plantel." },
+            { num: "14", name: "Gualberto Muggione", pos: "Mediocampista", info: "Volante central." },
+            { num: "15", name: "Pablo Comelles", pos: "Defensor", info: "Marcador lateral." },
+            { num: "16", name: "Daniel Willington", pos: "Mediocampista", info: "Veteranía y talento." }
+        ]
+    },
+    1977: {
+        hito: "Subcampeón Nacional. El equipo que mereció la gloria absoluta.",
+        torneo: "Nacional 1977",
+        plantel: [
+            { num: "1", name: "Rubén Guibaudo", pos: "Arquero", info: "Titular en la final." },
+            { num: "4", name: "Eduardo Astudillo", pos: "Defensor", info: "Lateral derecho." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Capitán y figura mundial." },
+            { num: "6", name: "Víctor Binello", pos: "Defensor", info: "Zaguero central sólido." },
+            { num: "3", name: "Victorio Ocaño", pos: "Defensor", info: "Lateral izquierdo de clase." },
+            { num: "8", name: "Luis Ludueña", pos: "Mediocampista", info: "Volante por derecha." },
+            { num: "5", name: "Miguel Oviedo", pos: "Mediocampista", info: "La 'Cata', polifuncional." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "La 'Rana', el gran 10." },
+            { num: "7", name: "Ángel Bocanelli", pos: "Delantero", info: "Autor del histórico gol." },
+            { num: "9", name: "Humberto Bravo", pos: "Delantero", info: "Goleador implacable." },
+            { num: "11", name: "Antonio Alderete", pos: "Delantero", info: "Extremo izquierdo." },
+            { num: "12", name: "Oscar Quiroga", pos: "Arquero", info: "Arquero suplente de lujo." },
+            { num: "14", name: "Gualberto Muggione", pos: "Mediocampista", info: "Volante de contención." },
+            { num: "15", name: "José Omar Reinaldi", pos: "Delantero", info: "La 'Pepona', ingresó en la final." },
+            { num: "16", name: "Ricardo Cherini", pos: "Delantero", info: "Puntero/Volante ofensivo." }
+        ]
+    },
+    1978: {
+        hito: "Semifinalista del Nacional y Tres Jugadores Campeones del Mundo: Galván, Oviedo y Valencia.",
+        torneo: "Nacional 1978",
+        plantel: [
+            { num: "1", name: "Rubén Guibaudo", pos: "Arquero", info: "Titular indiscutido tras su gran actuación en el 77." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "Consagración máxima: titular y figura en la final del Mundial 78." },
+            { num: "5", name: "Miguel Oviedo", pos: "Mediocampista", info: "La 'Cata'; Campeón del Mundo 1978 con la Selección Argentina." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "El 'Rana'; Campeón del Mundo 1978 con la Selección Argentina." },
+            { num: "4", name: "Eduardo Astudillo", pos: "Defensor", info: "Referente por banda derecha con gran jerarquía." },
+            { num: "3", name: "Victorio Ocaño", pos: "Defensor", info: "Lateral izquierdo de nivel internacional; convocado a la Selección." },
+            { num: "6", name: "Víctor Binello", pos: "Defensor", info: "Central fuerte y seguro en el centro de la defensa." },
+            { num: "8", name: "Luis Antonio Ludueña", pos: "Mediocampista", info: "El 'Hacha'; ídolo que se perdió el mundial por una lesión inoportuna." },
+            { num: "7", name: "Angel Bocanelli", pos: "Delantero", info: "Extremo veloz y pieza clave del ataque albiazul." },
+            { num: "9", name: "Humberto Rafael Bravo", pos: "Delantero", info: "Goleador imparable; preseleccionado para el Mundial 78." },
+            { num: "11", name: "Antonio Alderete", pos: "Delantero", info: "Aportó velocidad y goles por la banda izquierda." },
+            { num: "12", name: "Oscar Quiroga", pos: "Arquero", info: "Arquero de gran experiencia que siempre brindó seguridad." },
+            { num: "14", name: "Juan Domingo Cabrera", pos: "Mediocampista", info: "Volante con técnica exquisita y gran panorama." },
+            { num: "15", name: "José Omar Reinaldi", pos: "Delantero", info: "La 'Pepona'; goleador de jerarquía y talento." },
+            { num: "16", name: "Ricardo Cherini", pos: "Delantero", info: "Atacante que aportó frescura y velocidad al ataque." }
+        ]
+    },
+    1979: {
+        hito: "Llegada de Alberto Tarantini y regreso de Carlos Guerini. Talleres sigue siendo el centro de atención del país.",
+        torneo: "Nacional 1979",
+        plantel: [
+            { num: "1", name: "Rubén Guibaudo", pos: "Arquero", info: "Establecido como el guardián del arco albiazul." },
+            { num: "3", name: "Alberto Tarantini", pos: "Defensor", info: "El 'Conejo'; Campeón del Mundo 78 que revoluciona Córdoba con su llegada." },
+            { num: "11", name: "Carlos Guerini", pos: "Delantero", info: "El 'Chupete'; regresa del Real Madrid para jugar en su casa." },
+            { num: "2", name: "Luis Galván", pos: "Defensor", info: "El gran capitán post-Mundial; jerarquía internacional." },
+            { num: "4", name: "Victorio Ocaño", pos: "Defensor", info: "Lateral derecho consolidado en la Selección Nacional." },
+            { num: "6", name: "Víctor Binello", pos: "Defensor", info: "Central sólido; pieza clave del equipo cordobés." },
+            { num: "5", name: "Miguel Oviedo", pos: "Mediocampista", info: "La 'Cata'; equilibrio y categoría en el mediocampo." },
+            { num: "8", name: "Luis Antonio Ludueña", pos: "Mediocampista", info: "El 'Hacha'; ídolo absoluto con su fútbol de alto vuelo." },
+            { num: "10", name: "Daniel Valencia", pos: "Mediocampista", info: "El 'Rana'; director de orquesta del equipo campeón del mundo." },
+            { num: "7", name: "Angel Bocanelli", pos: "Delantero", info: "Extremo derecho; velocidad y gol garantizados." },
+            { num: "9", name: "Humberto Rafael Bravo", pos: "Delantero", info: "Goleador temible; referente del ataque matador." },
+            { num: "15", name: "Juan Domingo Cabrera", pos: "Mediocampista", info: "Aportó su técnica y panorama en la zona central." },
+            { num: "16", name: "José Omar Reinaldi", pos: "Delantero", info: "La 'Pepona'; talento y goles en la fase decisiva." },
+            { num: "14", name: "Rafael Pavón", pos: "Defensor", info: "Lateral con gran proyección que se ganó su lugar." },
+            { num: "17", name: "Ricardo Cherini", pos: "Delantero", info: "Atacante habilidoso que completó el frente ofensivo." }
+        ]
+    },
+};

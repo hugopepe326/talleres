@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Talleres de Córdoba - Archivo Histórico de Planteles</title>
+    <meta
+      name="description"
+      content="Base de datos histórica completa de planteles del Club Atlético Talleres de Córdoba desde 1913 hasta la actualidad."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;700&display=swap");
+
+      :root {
+        --primary-blue: #002d72;
+        --secondary-blue: #004b98;
+        --accent-blue: #3b82f6;
+        --glass-bg: rgba(255, 255, 255, 0.7);
+        --glass-border: rgba(255, 255, 255, 0.3);
+        --shadow-color: rgba(0, 45, 114, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Outfit", "Inter", sans-serif;
+        transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      /* ===== LIGHT MODE ===== */
+      body.light {
+        background-color: #f8fafc;
+        background-image: 
+          radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
+          radial-gradient(at 100% 100%, rgba(0, 45, 114, 0.05) 0px, transparent 50%);
+        color: #0f172a;
+        --text-primary: #0f172a;
+        --text-secondary: #334155;
+        --text-muted: #64748b;
+        --glass-bg: rgba(255, 255, 255, 0.7);
+        --glass-border: rgba(255, 255, 255, 0.5);
+      }
+
+      /* ===== DARK MODE ===== */
+      body.dark {
+        background-color: #020617;
+        background-image: 
+          radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+          radial-gradient(at 100% 0%, rgba(30, 58, 138, 0.1) 0px, transparent 50%);
+        color: #f1f5f9;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --glass-bg: rgba(15, 23, 42, 0.82);
+        --glass-border: rgba(255, 255, 255, 0.08);
+        --shadow-color: rgba(0, 0, 0, 0.5);
+      }
+
+      /* Helpers */
+      .text-primary { color: var(--text-primary) !important; }
+      .text-secondary { color: var(--text-secondary) !important; }
+      .text-muted { color: var(--text-muted) !important; }
+
+      /* Glassmorphism Classes */
+      .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 var(--shadow-color);
+        transition: all 0.3s ease;
+      }
+
+      /* Header gradient */
+      .albiazul-gradient {
+        background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #011627 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .albiazul-gradient::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: url('https://www.transparenttextures.com/patterns/cubes.png');
+        opacity: 0.05;
+        pointer-events: none;
+      }
+
+      /* Sidebar & Transitions */
+      .year-item {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        transition: all 0.2s ease;
+      }
+      .year-active {
+        background: var(--accent-blue) !important;
+        color: white !important;
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+      }
+      .year-active span {
+        color: white !important;
+      }
+
+      /* Modern Player Cards */
+      .player-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .player-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      body.dark .player-card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        border-color: var(--accent-blue);
+      }
+
+      /* Positions */
+      .badge-arquero { background: #fbbf24; color: #78350f; border: 1px solid rgba(120, 53, 15, 0.2); }
+      .badge-defensor { background: #3b82f6; color: #eff6ff; border: 1px solid rgba(255, 255, 255, 0.2); }
+      .badge-mediocampista { background: #10b981; color: #ecfdf5; border: 1px solid rgba(255, 255, 255, 0.2); }
+      .badge-delantero { background: #ef4444; color: #fef2f2; border: 1px solid rgba(255, 255, 255, 0.2); }
+
+      /* Hero Animation */
+      @keyframes float {
+        0% { transform: translate(0, 0); }
+        50% { transform: translate(10px, -10px); }
+        100% { transform: translate(0, 0); }
+      }
+      .hero-orb {
+        animation: float 8s ease-in-out infinite;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      body.dark ::-webkit-scrollbar-thumb { background: #334155; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
+
+      /* Micro-interactions */
+      .btn-hover {
+        transition: transform 0.2s ease, filter 0.2s ease;
+      }
+      .btn-hover:active {
+        transform: scale(0.95);
+      }
+
+      /* Theme toggle redesign */
+      .theme-switch {
+        width: 54px;
+        height: 28px;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(4px);
+        border-radius: 30px;
+        position: relative;
+        cursor: pointer;
+        padding: 3px;
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+      .theme-switch-icon {
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        left: 3px;
+        transition: 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: #fbbf24;
+      }
+      body.dark .theme-switch-icon {
+        left: 29px;
+        background: #0f172a;
+        color: #f1f5f9;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-up {
+        animation: fadeInUp 0.5s ease forwards;
+      }
+
+      /* Sidebar drawer */
+      .sidebar-drawer {
+        position: fixed;
+        top: 0;
+        left: -320px;
+        width: 300px;
+        height: 100vh;
+        z-index: 100;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 20px 0 50px rgba(0,0,0,0.2);
+      }
+      .sidebar-drawer.active { left: 0; }
+
+      .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(4px);
+        z-index: 90;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s;
+      }
+      .sidebar-overlay.active { opacity: 1; pointer-events: auto; }
+    </style>
+  </head>
+  <body class="light">
+    <!-- Mobile Sidebar Overlay -->
+    <div
+      class="sidebar-overlay"
+      id="sidebarOverlay"
+      onclick="closeSidebar()"
+    ></div>
+
+    <!-- Mobile Sidebar Drawer -->
+    <div class="sidebar-drawer card-bg" id="sidebarDrawer">
+      <div
+        class="p-5 albiazul-gradient text-white flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            src="escudo.png"
+            alt="Escudo"
+            class="w-10 h-10 object-contain"
+            style="mix-blend-mode: screen"
+          />
+          <span class="font-bold text-sm uppercase tracking-wide"
+            >Temporadas</span
+          >
+        </div>
+        <button
+          onclick="closeSidebar()"
+          class="text-white/70 hover:text-white text-xl transition-colors"
+          aria-label="Cerrar menú"
+        >
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      <div
+        class="p-3 overflow-y-auto"
+        id="yearListMobile"
+        style="max-height: calc(100vh - 70px)"
+      ></div>
+    </div>
+
+    <!-- Header -->
+    <header
+      class="albiazul-gradient text-white py-4 px-4 shadow-xl sticky top-0 z-50"
+    >
+      <div class="max-w-7xl mx-auto flex justify-between items-center gap-3">
+        <!-- Left: Logo + Title -->
+        <div class="flex items-center gap-3 min-w-0">
+          <!-- Mobile hamburger -->
+          <button
+            onclick="openSidebar()"
+            class="lg:hidden text-white/80 hover:text-white text-xl p-1 transition-colors"
+            aria-label="Abrir menú"
+            id="menuBtn"
+          >
+            <i class="fa fa-bars"></i>
+          </button>
+          <div
+            class="transform transition hover:scale-105 duration-300 flex-shrink-0 hidden sm:block"
+          >
+            <img
+              src="escudo.png"
+              alt="Escudo Club Atlético Talleres"
+              class="w-12 h-12 md:w-14 md:h-14 drop-shadow-lg object-contain"
+              style="mix-blend-mode: screen"
+            />
+          </div>
+          <div class="min-w-0">
+            <h1
+              class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black tracking-tighter uppercase leading-none truncate"
+            >
+              ARCHIVO <span class="hidden xs:inline">HISTÓRICO </span
+              ><span class="text-blue-300">ALBIAZUL</span>
+            </h1>
+            <p
+              class="text-blue-200/70 text-[10px] sm:text-xs font-medium tracking-wide mt-0.5"
+            >
+              PLANTELES 1913 - 2026
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Search + Theme Toggle -->
+        <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+          <div class="relative group w-40 sm:w-56 md:w-72">
+            <input
+              type="text"
+              id="playerSearch"
+              placeholder="Buscar jugador o año..."
+              class="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-full py-2.5 px-5 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white/20 text-white placeholder-blue-100/50 transition-all text-xs sm:text-sm shadow-inner"
+            />
+            <i class="fa fa-search absolute left-4 top-3 text-blue-300/70 text-xs sm:text-sm"></i>
+          </div>
+          <!-- Theme Toggle Redesigned -->
+          <div class="flex items-center gap-2">
+            <div class="theme-switch" id="themeToggle" onclick="toggleTheme()" title="Cambiar tema">
+              <div class="theme-switch-icon" id="themeSwitchIcon">
+                <i class="fa fa-sun"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main
+      class="max-w-7xl mx-auto px-3 sm:px-4 py-5 sm:py-8 grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8"
+    >
+      <!-- Sidebar: Timeline (Desktop) -->
+      <aside class="hidden lg:block lg:col-span-3">
+        <div
+          class="glass-card rounded-3xl p-5 shadow-2xl sticky top-28 h-[calc(100vh-140px)] flex flex-col transition-all duration-500"
+        >
+          <h2
+            class="font-black text-primary text-xl mb-6 flex items-center gap-3 px-2 tracking-tight"
+          >
+            <span class="bg-blue-600 text-white p-2 rounded-xl shadow-lg shadow-blue-500/20">
+              <i class="fa fa-history text-xs"></i>
+            </span>
+            Temporadas
+          </h2>
+          <div
+            class="space-y-2 overflow-y-auto pr-2 flex-1 custom-scrollbar"
+            id="yearList"
+          ></div>
+        </div>
+      </aside>
+
+      <!-- Main Content: Squad Display -->
+      <section class="lg:col-span-9 space-y-5 sm:space-y-6">
+        <!-- Hero Info -->
+        <div
+          id="yearHeader"
+          class="glass-card rounded-3xl p-8 sm:p-10 shadow-2xl border-l-[12px] border-l-blue-700 relative overflow-hidden transition-all duration-700 animate-fade-up"
+        >
+          <div
+            class="hero-orb absolute right-0 top-0 w-64 h-64 rounded-full bg-blue-500/10 blur-[100px] -mr-20 -mt-20 pointer-events-none"
+          ></div>
+
+          <div class="relative z-10">
+            <div
+              class="flex flex-col sm:flex-row justify-between items-start gap-6 mb-8"
+            >
+              <div class="space-y-1">
+                <span
+                  id="labelDecade"
+                  class="bg-blue-600/10 text-blue-600 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-blue-600/20 inline-block"
+                  >SELECCIONE UN AÑO</span
+                >
+                <h2
+                  id="displayYear"
+                  class="text-6xl sm:text-7xl md:text-8xl font-black text-primary tracking-tighter"
+                >
+                  ---
+                </h2>
+              </div>
+              <div class="w-full sm:w-auto">
+                <div
+                  class="bg-blue-900/5 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-blue-500/10 text-right"
+                >
+                  <p
+                    class="text-[10px] text-muted uppercase font-black mb-2 tracking-widest"
+                  >
+                    Competencia Principal
+                  </p>
+                  <p
+                    id="torneoName"
+                    class="font-black text-primary text-xl sm:text-2xl leading-none italic uppercase"
+                  >
+                    -
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-blue-600 to-transparent rounded-full shadow-[0_0_15px_rgba(37,99,235,0.4)]"></div>
+              <p
+                id="yearHito"
+                class="text-secondary font-medium text-lg sm:text-xl md:text-2xl leading-relaxed pl-6"
+              >
+                Seleccione una temporada del menú lateral para ver el plantel
+                completo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Squad Grid -->
+        <div>
+          <div class="flex items-center justify-between mb-4 sm:mb-6">
+            <h3
+              class="text-base sm:text-xl font-bold text-primary flex items-center gap-2 sm:gap-3 transition-colors duration-300"
+            >
+              <i class="fa fa-users text-blue-500"></i>
+              Plantel Completo
+            </h3>
+            <span
+              id="playerCount"
+              class="text-xs sm:text-sm font-semibold text-muted card-bg px-3 py-1 rounded-full border border-subtle transition-colors duration-300"
+              >0 Jugadores</span
+            >
+          </div>
+
+          <div
+            id="squadGrid"
+            class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4"
+          ></div>
+        </div>
+
+        <!-- Empty State -->
+        <div
+          id="emptyState"
+          class="hidden flex flex-col items-center justify-center py-12 sm:py-20 empty-bg rounded-2xl sm:rounded-3xl border-2 border-dashed transition-colors duration-300"
+        >
+          <div
+            class="card-bg p-5 sm:p-6 rounded-full mb-4 shadow-md transition-colors duration-300"
+          >
+            <i
+              class="fa fa-database text-3xl sm:text-4xl text-muted transition-colors duration-300"
+            ></i>
+          </div>
+          <h4
+            class="text-base sm:text-lg font-bold text-secondary transition-colors duration-300"
+          >
+            Sin datos detallados
+          </h4>
+          <p
+            class="text-xs sm:text-sm text-muted mt-1 max-w-md text-center px-4 transition-colors duration-300"
+          >
+            La información del plantel para este año se encuentra en proceso de
+            digitalización y verificación histórica.
+          </p>
+        </div>
+
+        <!-- Historical Photos Section -->
+        <div
+          class="divider-line h-px w-full my-12 transition-colors duration-300"
+        ></div>
+
+        <section id="historicalPhotos" class="space-y-10 pt-10">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+            <div>
+              <span class="text-blue-600 font-black uppercase tracking-[0.3em] text-xs mb-2 block">Archivo Visual</span>
+              <h3 class="text-4xl sm:text-5xl font-black text-primary tracking-tighter">
+                MEMORIA <span class="text-blue-600 italic">ALBIAZUL</span>
+              </h3>
+            </div>
+            <p class="text-sm text-muted font-medium border-l-2 border-blue-500 pl-4 max-w-xs">
+              Un recorrido por las imágenes que forjaron la identidad del Club más grande del interior.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
+            <!-- 1913 -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-2xl player-card group">
+              <div class="aspect-[4/3] relative overflow-hidden">
+                <img src="fotos_historicas/talleres_1913.jpg" alt="Talleres 1913" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div class="absolute bottom-6 left-6 right-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <span class="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full mb-3 inline-block shadow-lg">1913</span>
+                  <h4 class="text-white font-black text-2xl leading-none">EL ORIGEN</h4>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-sm text-secondary leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-700 h-0 group-hover:h-auto">
+                  Thomas Lawson y los fundadores del Central Córdoba que daría lugar a la mística de Talleres.
+                </p>
+              </div>
+            </div>
+
+            <!-- 1931 -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-2xl player-card group">
+              <div class="aspect-[4/3] relative overflow-hidden">
+                <img src="fotos_historicas/photo_1931.jpg" alt="Boutique 1931" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div class="absolute bottom-6 left-6 right-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <span class="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full mb-3 inline-block shadow-lg">1931</span>
+                  <h4 class="text-white font-black text-2xl leading-none">LA BOUTIQUE</h4>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-sm text-secondary leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-700 h-0 group-hover:h-auto">
+                  La construcción del templo de Barrio Jardín, joya arquitectónica del fútbol argentino.
+                </p>
+              </div>
+            </div>
+
+            <!-- 1970 PELÉ -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-2xl player-card group">
+              <div class="aspect-[4/3] relative overflow-hidden">
+                <img src="fotos_historicas/photo_pele_1970.jpg" alt="Pele vs Talleres" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div class="absolute bottom-6 left-6 right-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <span class="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full mb-3 inline-block shadow-lg">1970</span>
+                  <h4 class="text-white font-black text-2xl leading-none">O REI EN CBA</h4>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-sm text-secondary leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-700 h-0 group-hover:h-auto">
+                  Pelé con la camiseta del Santos visitando a Talleres ante un Barrio Jardín colmado.
+                </p>
+              </div>
+            </div>
+
+            <!-- 1977 -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-2xl player-card group">
+              <div class="aspect-[4/3] relative overflow-hidden">
+                <img src="fotos_historicas/talleres_1977_1.jpg" alt="Talleres 1977" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div class="absolute bottom-6 left-6 right-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <span class="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full mb-3 inline-block shadow-lg">1977</span>
+                  <h4 class="text-white font-black text-2xl leading-none">EQUIPO DE ORO</h4>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-sm text-secondary leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-700 h-0 group-hover:h-auto">
+                  El equipo que deslumbró al país bajo la batuta del Maestro Valencia y la Wanora Romero.
+                </p>
+              </div>
+            </div>
+
+            <!-- 1999 -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-2xl player-card group md:col-span-2">
+              <div class="aspect-[21/9] relative overflow-hidden">
+                <img src="fotos_historicas/talleres_1999.jpg" alt="Talleres 1999" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500"></div>
+                <div class="absolute bottom-10 left-10 right-10">
+                  <span class="bg-blue-600 text-white text-[10px] font-black px-4 py-1.5 rounded-full mb-4 inline-block shadow-xl uppercase tracking-widest">Hito Internacional</span>
+                  <h4 class="text-white font-black text-4xl sm:text-6xl leading-none italic mb-4">COPA CONMEBOL</h4>
+                  <p class="text-white/80 text-lg font-medium max-w-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    Talleres conquistó América la noche del 8 de diciembre de 1999, la máxima hazaña del fútbol cordobés.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2016 -->
+            <div class="glass-card rounded-3xl overflow-hidden shadow-2xl player-card group">
+              <div class="aspect-[4/3] relative overflow-hidden">
+                <img src="fotos_historicas/talleres_2016_cholo.jpg" alt="Gol Guiñazu" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div class="absolute bottom-6 left-6 right-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <span class="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full mb-3 inline-block shadow-lg">2016</span>
+                  <h4 class="text-white font-black text-2xl leading-none">EL SAPUCAI</h4>
+                </div>
+              </div>
+              <div class="p-6">
+                <p class="text-sm text-secondary leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-700 h-0 group-hover:h-auto">
+                  El gol agónico del Cholo Guiñazú en el último segundo para volver definitivamente a Primera.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="pt-20 pb-10 mt-20 relative overflow-hidden">
+      <div class="absolute inset-0 bg-blue-900/5 dark:bg-white/5 backdrop-blur-3xl -z-10"></div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+          <div class="flex flex-col items-center md:items-start gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <i class="fa fa-shield-alt text-white"></i>
+              </div>
+              <h3 class="text-2xl font-black text-primary tracking-tighter uppercase">Talleres <span class="text-blue-600">Histórico</span></h3>
+            </div>
+            <p class="text-sm text-secondary font-medium max-w-xs text-center md:text-left opacity-60">
+              Preservando la gloria y la memoria del Club Atlético Talleres. El archivo más completo de planteles históricos.
+            </p>
+          </div>
+
+          <div class="flex gap-6">
+            <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-primary hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-xl">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-primary hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-primary hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-xl">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent my-10"></div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-muted">
+          <p>© 2024 Proyecto Vibe Coding - Pasión Gallarda</p>
+          <div class="flex gap-8">
+            <a href="#" class="hover:text-blue-600 transition-colors">Legales</a>
+            <a href="#" class="hover:text-blue-600 transition-colors">Archivo</a>
+            <a href="#" class="hover:text-blue-600 transition-colors">Créditos</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile bottom bar: Open Sidebar -->
+    <div
+      class="lg:hidden fixed bottom-0 left-0 right-0 z-40 card-bg border-t border-subtle mobile-bar-glow transition-colors duration-300"
+      id="mobileBar"
+    >
+      <div class="flex items-center justify-around py-2.5 px-2 max-w-lg mx-auto">
+            <button onclick="openSidebar()" class="flex flex-col items-center gap-0.5 text-muted hover:text-blue-500 transition-colors p-1" aria-label="Ver temporadas">
+                <i class="fa fa-calendar-alt text-lg"></i>
+                <span class="text-[10px] font-semibold">Años</span>
+            </button>
+            <button onclick="document.getElementById('historicalPhotos').scrollIntoView({behavior:'smooth'})" class="flex flex-col items-center gap-0.5 text-muted hover:text-blue-500 transition-colors p-1" aria-label="Ver fotos">
+                <i class="fa fa-camera-retro text-lg"></i>
+                <span class="text-[10px] font-semibold">Fotos</span>
+            </button>
+            <button onclick="document.getElementById('playerSearch').focus();window.scrollTo({top:0,behavior:'smooth'})" class="flex flex-col items-center gap-0.5 text-muted hover:text-blue-500 transition-colors p-1" aria-label="Buscar jugador">
+                <i class="fa fa-search text-lg"></i>
+                <span class="text-[10px] font-semibold">Buscar</span>
+            </button>
+            <button onclick="toggleTheme()" class="flex flex-col items-center gap-0.5 text-muted hover:text-blue-500 transition-colors p-1" id="mobileThemeBtn" aria-label="Cambiar tema">
+                <i class="fa fa-moon text-lg" id="mobileThemeIcon"></i>
+                <span class="text-[10px] font-semibold" id="mobileThemeLabel">Tema</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom spacer for mobile bar -->
+    <div class="lg:hidden h-16"></div>
+
+    <script src="data_part1.js"></script>
+    <script src="data_part2.js"></script>
+    <script src="data_part3.js"></script>
+    <script src="data_part4.js"></script>
+    <script>
+      /* Merge all historical data */
+      const historicalData = Object.assign({}, dataP1, dataP2, dataP3, dataP4);
+
+      const yearList = document.getElementById("yearList");
+      const yearListMobile = document.getElementById("yearListMobile");
+      const squadGrid = document.getElementById("squadGrid");
+      const displayYear = document.getElementById("displayYear");
+      const yearHito = document.getElementById("yearHito");
+      const torneoName = document.getElementById("torneoName");
+      const labelDecade = document.getElementById("labelDecade");
+      const emptyState = document.getElementById("emptyState");
+      const playerCount = document.getElementById("playerCount");
+      const searchInput = document.getElementById("playerSearch");
+
+      let currentYear = 2026;
+      let isDark = false;
+
+      /* ===== THEME ===== */
+      function toggleTheme() {
+        isDark = !isDark;
+        document.body.className = isDark ? "dark" : "light";
+        localStorage.setItem("talleres-theme", isDark ? "dark" : "light");
+        updateThemeUI();
+      }
+
+      function updateThemeUI() {
+        const icon = document.querySelector("#themeToggle i");
+        const mobileIcon = document.getElementById("mobileThemeIcon");
+        const mobileLabel = document.getElementById("mobileThemeLabel");
+        
+        if (isDark) {
+          icon.className = "fa fa-moon";
+          if (mobileIcon) mobileIcon.className = "fa fa-sun text-lg";
+          if (mobileLabel) mobileLabel.textContent = "Claro";
+        } else {
+          icon.className = "fa fa-sun";
+          if (mobileIcon) mobileIcon.className = "fa fa-moon text-lg";
+          if (mobileLabel) mobileLabel.textContent = "Oscuro";
+        }
+      }
+
+      function loadTheme() {
+        const saved = localStorage.getItem("talleres-theme");
+        if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          isDark = true;
+          document.body.className = "dark";
+        } else {
+          isDark = false;
+          document.body.className = "light";
+        }
+        updateThemeUI();
+      }
+
+      /* ===== SIDEBAR ===== */
+      function openSidebar() {
+        document.getElementById("sidebarOverlay").classList.add("active");
+        document.getElementById("sidebarDrawer").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeSidebar() {
+        document.getElementById("sidebarOverlay").classList.remove("active");
+        document.getElementById("sidebarDrawer").classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      /* ===== YEAR LIST ===== */
+      function initYearList() {
+        const startYear = 1913;
+        const endYear = 2026;
+        [yearList, yearListMobile].forEach((container) => {
+          container.innerHTML = "";
+          for (let y = endYear; y >= startYear; y--) {
+            const isDetailed = historicalData[y] !== undefined;
+            const isActive = y === currentYear;
+            const div = document.createElement("div");
+            div.className = `year-item flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all duration-200 ${isActive ? "year-active" : ""}`;
+            div.onclick = () => {
+              selectYear(y);
+              closeSidebar();
+            };
+            div.dataset.year = y;
+            div.innerHTML = `
+                        <span class="font-bold text-sm ${isActive ? "year-text-active" : "year-text"} transition-colors duration-200">${y}</span>
+                        ${isDetailed ? '<span class="plantel-badge text-[9px] px-2 py-0.5 rounded-full font-bold tracking-wider transition-colors duration-200">PLANTEL</span>' : ""}
+                    `;
+            container.appendChild(div);
+          }
+        });
+      }
+
+      function selectYear(y) {
+        // Update styling in both containers
+        [yearList, yearListMobile].forEach((container) => {
+          container.querySelectorAll(".year-item").forEach((el) => {
+            const elYear = parseInt(el.dataset.year);
+            const isActive = elYear === y;
+            el.className = `year-item flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all duration-200 ${isActive ? "year-active" : ""}`;
+            const span = el.querySelector("span:first-child");
+            span.className = `font-bold text-sm ${isActive ? "year-text-active" : "year-text"} transition-colors duration-200`;
+          });
+        });
+
+        currentYear = y;
+        updateContent();
+      }
+
+      /* ===== CONTENT ===== */
+      function updateContent() {
+        const data = historicalData[currentYear];
+        
+        // Hero transition
+        displayYear.style.opacity = "0";
+        yearHito.style.opacity = "0";
+        
+        setTimeout(() => {
+          displayYear.innerText = currentYear;
+          labelDecade.innerText = `TEMPORADA ${currentYear}`;
+          
+          if (data) {
+            emptyState.classList.add("hidden");
+            squadGrid.classList.remove("hidden");
+            yearHito.innerText = data.hito;
+            torneoName.innerText = data.torneo;
+            playerCount.innerText = `${data.plantel.length} Jugadores`;
+            renderSquad(data.plantel);
+          } else {
+            emptyState.classList.remove("hidden");
+            squadGrid.classList.add("hidden");
+            yearHito.innerText = "Seleccione otro año para ver detalles.";
+            torneoName.innerText = "Sin Datos";
+            playerCount.innerText = "0 Jugadores";
+            squadGrid.innerHTML = "";
+          }
+          
+          displayYear.style.opacity = "1";
+          yearHito.style.opacity = "1";
+        }, 150);
+      }
+
+      function getPosClass(pos) {
+        const map = {
+          Arquero: "pos-arquero",
+          Defensor: "pos-defensor",
+          Mediocampista: "pos-mediocampista",
+          Delantero: "pos-delantero",
+        };
+        return map[pos] || "pos-default";
+      }
+
+      function renderSquad(players) {
+        squadGrid.innerHTML = "";
+        players.forEach((p, i) => {
+          const card = document.createElement("div");
+          card.className = "glass-card p-6 rounded-2xl player-card relative overflow-hidden group stagger-up";
+          card.style.animationDelay = `${i * 30}ms`;
+
+          const posClass = `badge-${p.pos.toLowerCase()}`;
+          const jerseyNum = p.num && p.num !== "-" ? p.num : "";
+
+          card.innerHTML = `
+            <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+              <span class="text-8xl font-black italic">${jerseyNum}</span>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-4">
+                <span class="${posClass} text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+                  ${p.pos}
+                </span>
+                ${jerseyNum ? `<span class="text-xl font-black text-blue-500/50 group-hover:text-blue-500 transition-colors">#${p.num}</span>` : ''}
+              </div>
+              <h4 class="text-xl font-bold text-primary mb-3 group-hover:text-blue-600 transition-colors leading-tight">
+                ${p.name}
+              </h4>
+              <div class="h-1 w-12 bg-blue-500/20 rounded-full mb-4 group-hover:w-full transition-all duration-500"></div>
+              <p class="text-sm text-secondary leading-relaxed opacity-80 italic">
+                "${p.info}"
+              </p>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+          `;
+          squadGrid.appendChild(card);
+        });
+      }
+
+      /* ===== SEARCH ===== */
+      searchInput.oninput = (e) => {
+        const val = e.target.value.toLowerCase();
+        if (val === "") {
+          updateContent();
+          return;
+        }
+
+        let results = [];
+        Object.keys(historicalData).forEach((year) => {
+          historicalData[year].plantel.forEach((p) => {
+            if (
+              p.name.toLowerCase().includes(val) ||
+              year.toString().includes(val) ||
+              p.pos.toLowerCase().includes(val) ||
+              (p.num && p.num.toString() === val)
+            ) {
+              results.push({ ...p, year: year });
+            }
+          });
+        });
+
+        if (results.length > 0) {
+          displayYear.innerText = `Resultados`;
+          labelDecade.innerText = `BÚSQUEDA: "${val.toUpperCase()}"`;
+          yearHito.innerText = `Se encontraron ${results.length} coincidencias en la historia del club.`;
+          torneoName.innerText = "Archivo Global";
+          emptyState.classList.add("hidden");
+          squadGrid.classList.remove("hidden");
+          playerCount.innerText = `${results.length} Resultados`;
+
+          squadGrid.innerHTML = "";
+          results.forEach((p, i) => {
+            const card = document.createElement("div");
+            card.className =
+              "search-result-card card-bg p-4 sm:p-5 rounded-xl sm:rounded-2xl shadow-md border-l-4 border-blue-600 animate-card transition-colors duration-300";
+            card.style.animationDelay = `${i * 30}ms`;
+            card.innerHTML = `
+                        <div class="flex justify-between items-center mb-2 flex-wrap gap-1">
+                            <span class="text-[10px] sm:text-xs font-bold text-white bg-blue-800 px-2 py-1 rounded">AÑO ${p.year}</span>
+                            <span class="text-[10px] sm:text-xs font-bold text-secondary card-bg px-2 py-1 rounded uppercase border border-subtle transition-colors duration-300">${p.pos}</span>
+                        </div>
+                        <h4 class="font-bold text-base sm:text-lg text-primary transition-colors duration-300">${p.name}</h4>
+                        <p class="text-xs sm:text-sm text-secondary mt-2 transition-colors duration-300">${p.info}</p>
+                    `;
+            squadGrid.appendChild(card);
+          });
+        } else {
+          squadGrid.innerHTML = "";
+          emptyState.classList.remove("hidden");
+          squadGrid.classList.add("hidden");
+          yearHito.innerText = "Intente con otro nombre o año.";
+        }
+      };
+
+      /* ===== INIT ===== */
+      window.onload = () => {
+        loadTheme();
+        initYearList();
+        updateContent();
+      };
+    </script>
+  </body>
+</html>
